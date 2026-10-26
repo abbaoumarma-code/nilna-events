@@ -1,7 +1,7 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
 import React from 'react';
-import { Pressable, ScrollView, ScrollViewProps, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, ScrollViewProps, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { BRAND } from '@/config';
@@ -37,8 +37,13 @@ export function TopBar() {
       </View>
       <View style={s.head}>
         <Pressable onPress={() => router.navigate('/')} accessibilityRole="link" accessibilityLabel="NILNA Events home">
-          <Text style={s.wordmark}>NILNA</Text>
-          <Text style={s.eventTag}>EVENTS</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <Image source={require('../../assets/nilna-logo.png')} style={s.badge} accessibilityIgnoresInvertColors />
+            <View>
+              <Text style={s.wordmark}>NILNA</Text>
+              <Text style={s.eventTag}>EVENTS</Text>
+            </View>
+          </View>
         </Pressable>
         <Pressable onPress={() => router.navigate('/book')} style={[s.plan, sticker(2)]} accessibilityRole="button" accessibilityLabel={`My plan, ${itemCount} items`}>
           <Text style={{ fontFamily: F.heavy, fontSize: 13, color: C.ink }}>My plan</Text>
@@ -86,6 +91,7 @@ const s = StyleSheet.create({
   cur: { flexDirection: 'row', borderWidth: 1, borderColor: 'rgba(255,255,255,0.28)', borderRadius: 999, padding: 2 },
   curBtn: { borderRadius: 999, paddingVertical: 2, paddingHorizontal: 8 },
   head: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 18, paddingVertical: 10, borderBottomWidth: 1.5, borderColor: C.ink, backgroundColor: C.paper },
+  badge: { width: 46, height: 46, borderRadius: 23 },
   wordmark: { fontFamily: F.black, fontSize: 24, letterSpacing: 4, color: C.ink, lineHeight: 26 },
   eventTag: { fontFamily: F.heavy, fontSize: 9, letterSpacing: 6, color: C.brand, marginTop: 3, paddingLeft: 2 },
   plan: { flexDirection: 'row', alignItems: 'center', gap: 8, borderWidth: 1.5, borderColor: C.ink, borderRadius: 999, paddingVertical: 6, paddingLeft: 13, paddingRight: 6, backgroundColor: C.note },
