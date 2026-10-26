@@ -1,0 +1,1449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="NILNA Events: event planning and decoration in Dubai and across the UAE. Birthdays, baby welcomes, proposals, weddings, openings, National Day and corporate events.">
+<meta property="og:title" content="NILNA Events">
+<meta property="og:description" content="Event planning &amp; decoration in Dubai. Book in 1 minute.">
+<meta property="og:image" content="mockup.png">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-family:system-ui,sans-serif;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>NILNA Events</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&display=swap">
+<style>
+/* Concept: the planner's moodboard. White dotted paper, pinned cards with orange tape, polaroid frames,
+   sticky notes and handwritten annotations (Caveat) in signature orange. Cards sit slightly askew and straighten on hover.
+   Views: Home / Packages / Services / Venues / My plan / Dashboard (staff). Floating: Nina + WhatsApp human. Light-only. */
+:root{
+  --paper:#ffffff; --dot:#e9e4dc; --card:#ffffff; --cream:#faf6ef; --note:#fff3c9; --note2:#fde3d6; --note3:#e3f1ea;
+  --ink:#151311; --ink2:#3d3833; --muted:#7a736a; --line:#e6dfd4;
+  --brand:#ed4308; --brand-dk:#c93806; --brand-soft:#fdeee6; --tape:rgba(237,67,8,.72);
+  --wa:#25d366; --wa-ink:#06331a;
+  --ok:#2f7d5b; --warn:#b7791f; --bad:#b42318; --info:#2c5f8a;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+  --shadow:0 1px 0 rgba(21,19,17,.06),0 10px 24px -14px rgba(21,19,17,.35);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background-color:var(--paper);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.2px);background-size:22px 22px;color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+.wrap{max-width:1220px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:900;line-height:1.02;letter-spacing:-.035em;margin:0;text-wrap:balance}
+h1 em,h2 em,h3 em{font-family:var(--hand);font-style:normal;font-weight:700;color:var(--brand);letter-spacing:0;display:inline-block;transform:rotate(-2deg);font-size:1.12em;line-height:.9;padding:0 .08em}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--brand)}
+:focus-visible{outline:2.5px solid var(--brand);outline-offset:3px}
+.kicker{font-family:var(--hand);font-size:24px;font-weight:700;color:var(--brand);line-height:1;display:inline-block;transform:rotate(-1.5deg)}
+.kicker.a{color:var(--brand)}
+.muted{color:var(--muted)}
+.hand{font-family:var(--hand);font-weight:700}
+
+/* tape + pinned card primitives */
+.pin{position:relative;background:var(--card);border:1.5px solid var(--ink);box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+.pin::before{content:"";position:absolute;top:-11px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(-3deg);background:var(--tape);opacity:.85;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.tilt-l{transform:rotate(-1.2deg)}.tilt-r{transform:rotate(1.1deg)}
+.pin:hover{transform:rotate(0) translateY(-3px);box-shadow:0 18px 32px -16px rgba(21,19,17,.45)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);font-weight:800;font-size:14px;text-decoration:none;white-space:nowrap;box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s,background .15s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-accent{background:var(--brand);color:#fff}
+.btn-accent:hover{background:var(--brand-dk)}
+.btn-light{background:var(--card)}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-sm{padding:8px 14px;font-size:13px;box-shadow:2px 2px 0 var(--ink)}
+.link{border:0;background:none;padding:0;font-weight:800;font-size:14px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--brand);text-decoration-thickness:2.5px;text-underline-offset:4px}
+.link:hover{color:var(--brand)}
+
+/* language bar */
+.langbar{background:var(--ink);color:#e9e2d8;font-size:12.5px;font-weight:600}
+.langbar .wrap{display:flex;align-items:center;gap:12px;padding-block:7px;flex-wrap:wrap}
+.langbar .lbl{font-family:var(--hand);font-size:19px;color:#ffb38f;font-weight:700}
+.langs{display:flex;gap:4px;flex-wrap:wrap}
+.langs button{border:1px solid rgba(255,255,255,.25);background:none;color:#fff;border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700}
+.langs button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand)}
+.langbar .right{margin-left:auto;display:flex;gap:14px;align-items:center}
+.cur{display:flex;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:2px}
+.cur button{border:0;background:none;color:#cfc7bc;border-radius:999px;padding:1px 9px;font-size:11.5px;font-weight:800}
+.cur button[aria-pressed="true"]{background:#fff;color:var(--ink)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1.5px solid var(--ink)}
+.top .wrap{display:flex;align-items:center;gap:18px;padding-block:12px;flex-wrap:wrap}
+.logo{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:var(--ink);order:-1}
+.logo .wm{font-family:var(--sans);font-weight:900;font-size:27px;letter-spacing:.16em;line-height:1;color:var(--ink)}
+.logo small{font-size:9.5px;font-weight:800;letter-spacing:.66em;color:var(--brand);padding-left:2px}
+.navl{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+.navr{display:flex}
+.tab{border:0;background:none;padding:8px 12px;border-radius:999px;font-weight:800;font-size:14px;color:var(--ink2)}
+.tab:hover{background:var(--cream)}
+.tab[aria-selected="true"]{background:var(--brand-soft);color:var(--brand)}
+.tab.staff{color:var(--info)}
+.plan-pill{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);border-radius:999px;padding:7px 8px 7px 14px;font-weight:800;font-size:13.5px;background:var(--note);box-shadow:2px 2px 0 var(--ink)}
+.plan-pill b{display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:12px;background:var(--brand);color:#fff;font-size:12px;padding:0 6px}
+
+.panel[hidden]{display:none}
+main{padding-bottom:120px}
+
+/* polaroid art */
+.art{position:relative;overflow:hidden;background:#2a211b}
+.art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.polaroid{background:var(--card);padding:12px 12px 46px;border:1.5px solid var(--ink);box-shadow:var(--shadow);position:relative}
+.polaroid .art{aspect-ratio:4/3;max-width:100%}
+.polaroid figcaption{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:var(--hand);font-size:24px;font-weight:700;color:var(--ink)}
+.polaroid::before{content:"";position:absolute;top:-12px;left:24px;width:90px;height:24px;transform:rotate(-8deg);background:var(--tape);opacity:.85}
+
+/* hero board */
+.hero{padding-block:46px 30px;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(46px,7vw,92px);margin-block:12px 18px}
+.hero h1 em{font-size:1.18em}
+.hero p.lead{font-size:17px;color:var(--ink2);max-width:48ch;margin:0}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.arrow-note{display:flex;align-items:center;gap:10px;margin-top:22px;font-family:var(--hand);font-size:22px;font-weight:700;color:var(--muted)}
+.arrow-note svg{flex:none}
+.board{position:relative;min-height:520px}
+.board .polaroid{position:absolute;top:0;right:0;width:74%;transform:rotate(3deg)}
+.board .concierge{position:absolute;left:0;bottom:0;width:66%;transform:rotate(-2deg)}
+.board .sticky{position:absolute;right:4%;bottom:6%;width:150px;transform:rotate(5deg)}
+.sticky{background:var(--note);padding:16px 16px 18px;box-shadow:var(--shadow);font-family:var(--hand);font-size:22px;font-weight:700;line-height:1.1;color:var(--ink)}
+.sticky b{color:var(--brand)}
+
+/* concierge (planning card) */
+.concierge{background:var(--card);border:1.5px solid var(--ink);padding:22px 22px 20px;box-shadow:6px 6px 0 var(--ink)}
+.concierge::before{content:"";position:absolute;top:-12px;left:42%;width:80px;height:22px;transform:rotate(4deg);background:var(--tape);opacity:.85}
+.concierge h3{font-size:24px;margin-block:4px 14px}
+.cg-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.cg-f{display:flex;flex-direction:column;border-bottom:1.5px dashed var(--line);padding:8px 0 6px;min-width:0}
+.cg-f.full{grid-column:1/-1}
+.cg-f span{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cg-f select,.cg-f input{border:0;background:none;padding:2px 0;font-weight:800;font-size:16px;width:100%;appearance:none;-webkit-appearance:none}
+.cg-f select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ed4308' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 2px center no-repeat;padding-right:18px}
+.cg-f select:focus,.cg-f input:focus{outline:none;color:var(--brand)}
+.concierge .btn{width:100%;margin-top:16px}
+#tkTitle,#tkNo,#tkNo2{display:none}
+
+/* season */
+.season{margin-block:20px 0}
+.season .wrap>div{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--note3);border:1.5px solid var(--ink);padding:14px 18px;box-shadow:4px 4px 0 var(--ink)}
+.flag{display:flex;width:44px;height:26px;flex:none;border:1px solid var(--ink)}
+.flag i{width:30%;background:#ef3340}.flag span{flex:1;display:flex;flex-direction:column}
+.flag b{flex:1}.flag b:nth-child(1){background:#009739}.flag b:nth-child(2){background:#fff}.flag b:nth-child(3){background:#000}
+.season p{margin:0;flex:1 1 360px;font-weight:700}
+.season p b{color:var(--brand)}
+.season .btns{display:flex;gap:10px}
+
+/* sections */
+.sec{padding-block:84px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:34px}
+.sec-head h2{font-size:clamp(34px,4.6vw,58px)}
+.sec-head p{margin:10px 0 0;color:var(--muted);max-width:58ch;font-size:16px}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.intro .big{font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.25}
+.intro .big em{font-family:var(--hand);font-style:normal;color:var(--brand);font-size:1.2em}
+.intro .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;color:var(--ink2)}
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.figs div{background:var(--card);border:1.5px solid var(--ink);padding:12px 14px;font-size:12px;font-weight:700;color:var(--muted);box-shadow:3px 3px 0 var(--ink)}
+.figs div:nth-child(odd){transform:rotate(-1.5deg)}.figs div:nth-child(even){transform:rotate(1.2deg)}
+.figs b{display:block;font-size:32px;font-weight:900;color:var(--ink);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+
+/* occasions as stickers */
+.occ{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px}
+.occ button{position:relative;text-align:left;border:1.5px solid var(--ink);background:var(--card);padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:3px 3px 0 var(--ink);transition:transform .2s}
+.occ button:nth-child(4n+1){transform:rotate(-1.4deg)}.occ button:nth-child(4n+2){transform:rotate(1deg)}.occ button:nth-child(4n+3){transform:rotate(-.6deg)}.occ button:nth-child(4n){transform:rotate(1.5deg)}
+.occ button:hover{transform:rotate(0) translateY(-3px)}
+.occ .ic{width:42px;height:42px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;border:1.5px solid var(--brand)}
+.occ b{font-size:15px;font-weight:800;line-height:1.2;display:block}
+.occ small{font-size:12.5px;color:var(--muted);display:block;margin-top:2px}
+
+/* chapters */
+.chapters{display:grid;gap:80px}
+.chapter{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.chapter:nth-child(even) .polaroid{order:2;transform:rotate(-2.2deg)}
+.chapter .polaroid{transform:rotate(2deg)}
+.chapter h3{font-size:clamp(30px,3.6vw,46px);margin-block:10px 14px}
+.chapter p{color:var(--ink2);margin:0 0 18px;max-width:48ch}
+.chapter ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:8px}
+.chapter li{display:flex;gap:10px;align-items:baseline;font-weight:700;font-size:14.5px}
+.chapter li::before{content:"✓";color:var(--brand);font-weight:900}
+.chapter li span{color:var(--muted);font-weight:500;font-size:13px}
+
+/* departments as index cards */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.cat{position:relative;border:1.5px solid var(--ink);background:var(--card);text-align:left;padding:22px 18px 18px;display:flex;flex-direction:column;gap:8px;min-height:170px;box-shadow:var(--shadow);background-image:repeating-linear-gradient(transparent 0 27px,#f0e9de 27px 28px);background-position:0 46px}
+.cat:nth-child(3n+1){transform:rotate(-1deg)}.cat:nth-child(3n+2){transform:rotate(.8deg)}
+.cat:hover{transform:rotate(0) translateY(-3px)}
+.cat::before{content:"";position:absolute;top:-10px;left:18px;width:60px;height:20px;background:var(--tape);opacity:.8;transform:rotate(-4deg)}
+.cat .n{font-family:var(--hand);font-size:40px;font-weight:700;color:var(--brand);line-height:.9}
+.cat h3{font-size:16px;font-weight:900;letter-spacing:-.01em;line-height:1.2}
+.cat p{margin:0;color:var(--muted);font-size:13px}
+.cat.big{grid-column:span 2;background:var(--note);background-image:none}
+.cat.big h3{font-size:24px}
+
+/* packages as pinned cards */
+.spot,.pk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:start}
+.pk{position:relative;border:1.5px solid var(--ink);background:var(--card);display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .25s}
+.pk:nth-child(3n+1){transform:rotate(-1deg)}.pk:nth-child(3n+3){transform:rotate(1deg)}
+.pk:hover{transform:rotate(0) translateY(-3px)}
+.pk::before{content:"";position:absolute;top:-11px;left:50%;width:80px;height:22px;transform:translateX(-50%) rotate(-3deg);background:var(--tape);opacity:.85}
+.pk.feat{background:var(--note)}
+.pk .badge{position:absolute;top:14px;right:-10px;background:var(--brand);color:#fff;font-family:var(--hand);font-size:20px;font-weight:700;padding:2px 12px;transform:rotate(6deg);border:1.5px solid var(--ink)}
+.pk .top-part{padding:26px 22px 14px}
+.pk .grp{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pk h3{font-size:26px;margin-block:6px 4px}
+.pk .for{font-size:13.5px;color:var(--muted)}
+.pk .perf{border-top:1.5px dashed var(--line);margin-inline:22px}
+.pk ul{list-style:none;margin:0;padding:16px 22px;display:grid;gap:8px;font-size:14px;flex:1}
+.pk li{display:flex;gap:10px}
+.pk li::before{content:"✓";color:var(--brand);font-weight:900;flex:none}
+.pk .foot{padding:0 22px 22px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.pk .quote{font-family:var(--hand);font-size:19px;font-weight:700;color:var(--muted)}
+
+/* offer */
+.offer{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center;background:var(--note2);border:1.5px solid var(--ink);padding:34px;box-shadow:6px 6px 0 var(--ink);position:relative}
+.offer .art{aspect-ratio:4/3;max-width:100%;border:10px solid #fff;outline:1.5px solid var(--ink);transform:rotate(-3deg)}
+.offer .txt{display:flex;flex-direction:column;gap:12px}
+.offer h2{font-size:clamp(28px,3.4vw,44px)}
+.offer p{margin:0;color:var(--ink2);max-width:54ch}
+.offer .btn{align-self:flex-start;margin-top:6px}
+
+/* journey */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.step{background:var(--card);border:1.5px solid var(--ink);padding:20px;box-shadow:3px 3px 0 var(--ink)}
+.step .dot{font-family:var(--hand);font-size:46px;font-weight:700;color:var(--brand);line-height:.9;margin-bottom:8px}
+.step h3{font-size:19px;margin-bottom:6px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+
+/* why as sticky notes */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why div{padding:18px 18px 22px;box-shadow:var(--shadow);background:var(--note)}
+.why div:nth-child(3n+2){background:var(--note2)}.why div:nth-child(3n){background:var(--note3)}
+.why div:nth-child(odd){transform:rotate(-1.4deg)}.why div:nth-child(even){transform:rotate(1.2deg)}
+.why b{display:block;font-family:var(--hand);font-size:27px;font-weight:700;line-height:1;margin-bottom:6px}
+.why span{color:var(--ink2);font-size:14px}
+
+/* nina */
+.nina-band{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;background:var(--card);border:1.5px solid var(--ink);padding:34px;box-shadow:6px 6px 0 var(--ink)}
+.nina-face{width:130px;height:130px;border-radius:50%;background:var(--ink);display:grid;place-items:center;position:relative;transform:rotate(-4deg)}
+.nina-face span{font-family:var(--hand);font-size:84px;font-weight:700;color:var(--brand);line-height:1}
+.nina-face::after{content:"";position:absolute;right:10px;bottom:12px;width:22px;height:22px;border-radius:50%;background:var(--wa);border:4px solid var(--card)}
+.nina-band h2{font-size:clamp(30px,3.8vw,48px)}
+.nina-band p{margin:10px 0 18px;color:var(--ink2);max-width:60ch}
+.prompts{display:flex;gap:10px;flex-wrap:wrap}
+.prompt{border:1.5px solid var(--ink);background:var(--note);padding:8px 14px;font-family:var(--hand);font-size:21px;font-weight:700;box-shadow:2px 2px 0 var(--ink)}
+.prompt:nth-child(even){background:var(--note2)}
+.prompt:hover{transform:translateY(-2px)}
+.human{display:flex;align-items:center;gap:12px;margin-top:20px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+
+/* services */
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.search{flex:1;min-width:240px;border:1.5px solid var(--ink);border-radius:999px;padding:13px 20px;background:var(--card);font-weight:600;box-shadow:3px 3px 0 var(--ink)}
+.search:focus{outline:none;border-color:var(--brand)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:800}
+.chip:hover{background:var(--cream)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+.group{margin-top:44px}
+.group-head{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.group-head h3{font-size:26px}
+.group-head span{font-family:var(--hand);font-size:26px;font-weight:700;color:var(--brand)}
+.svc-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.svc-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;background:var(--card);border:1.5px solid var(--line)}
+.svc-row:hover{border-color:var(--ink)}
+.svc-row b{font-size:14px;font-weight:800;display:block}
+.svc-row small{color:var(--muted);font-size:12.5px}
+.add{border:1.5px solid var(--ink);background:var(--card);width:34px;height:34px;border-radius:50%;font-size:18px;line-height:1;font-weight:800}
+.add[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.empty{color:var(--muted);padding:30px 0;font-family:var(--hand);font-size:26px}
+.note{font-size:13px;color:var(--muted)}
+
+/* tour */
+.tour{display:grid;grid-template-columns:1fr 330px;gap:36px;align-items:start}
+.tour-stage{border:1.5px solid var(--ink);overflow:hidden;background:var(--cream);position:relative;box-shadow:6px 6px 0 var(--ink)}
+.tour-stage svg{display:block;width:100%;height:auto}
+.tour-stage .L{transition:opacity .6s,transform .6s}
+.tour-stage .off{opacity:0;transform:translateY(8px)}
+.tour-cap{position:absolute;left:14px;bottom:14px;background:var(--note);padding:4px 14px;font-family:var(--hand);font-size:22px;font-weight:700;border:1.5px solid var(--ink);transform:rotate(-2deg)}
+.tour-side .field>span{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tour-side input[type=range]{width:100%;accent-color:var(--brand);margin-top:10px}
+.tour-steps{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:6px}
+.tour-steps li button{width:100%;text-align:left;border:1.5px solid transparent;background:none;padding:8px 10px;display:flex;gap:12px;align-items:center;font-weight:700;font-size:14.5px;color:var(--muted);border-radius:10px}
+.tour-steps li button i{font-style:normal;width:26px;height:26px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:12px;flex:none}
+.tour-steps li button.on{color:var(--ink)}
+.tour-steps li button.on i{background:var(--brand);border-color:var(--brand);color:#fff}
+.tour-steps li button.cur{border-color:var(--ink);background:var(--note)}
+.tour-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.vtypes{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.vt{border:1.5px solid var(--ink);background:var(--card);text-align:left;padding:18px;display:flex;flex-direction:column;gap:6px;box-shadow:3px 3px 0 var(--ink)}
+.vt:nth-child(odd){transform:rotate(-.8deg)}.vt:nth-child(even){transform:rotate(.7deg)}
+.vt:hover{transform:rotate(0)}
+.vt[aria-pressed="true"]{background:var(--note)}
+.vt .cap{font-family:var(--hand);font-size:20px;font-weight:700;color:var(--brand)}
+.vt b{font-size:16px;font-weight:900}
+.vt small{color:var(--muted);font-size:13px}
+.setups{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.st{border:1.5px solid var(--ink);background:var(--card);padding:14px 10px;text-align:center;color:var(--ink2);box-shadow:2px 2px 0 var(--ink)}
+.st[aria-pressed="true"]{background:var(--note);color:var(--brand)}
+.st svg{width:100%;max-width:120px;height:auto;display:block;margin:0 auto 6px}
+.st b{display:block;font-weight:900;font-size:14px;color:var(--ink)}
+.st span{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* instagram */
+.ig-ic{display:block;flex:none}
+.ig-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:inherit;font-weight:800}
+.ig-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--ink);display:inline-grid;place-items:center;color:var(--ink);background:var(--card);box-shadow:2px 2px 0 var(--ink);text-decoration:none}
+.ig-btn:hover{color:#fff;background:linear-gradient(45deg,#f9a03f,#e1306c 55%,#833ab4)}
+.art.photo{background:var(--cream)}
+.art.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.board .polaroid .art{aspect-ratio:4/4.4}
+.gram{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px}
+.gram a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1.5px solid var(--ink);padding:10px 10px 12px;box-shadow:var(--shadow);transition:transform .25s}
+.gram a:nth-child(4n+1){transform:rotate(-1.6deg)}.gram a:nth-child(4n+2){transform:rotate(1.2deg)}.gram a:nth-child(4n+3){transform:rotate(-.7deg)}.gram a:nth-child(4n){transform:rotate(1.6deg)}
+.gram a:hover{transform:rotate(0) translateY(-4px)}
+.gram .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--cream)}
+.gram img{width:100%;height:100%;object-fit:cover;display:block}
+.gram .ph::after{content:"";position:absolute;right:8px;top:8px;width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.9) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23151311' stroke-width='2'%3E%3Crect x='3' y='3' width='18' height='18' rx='5'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3C/svg%3E") center/16px no-repeat;opacity:0;transition:opacity .2s}
+.gram a:hover .ph::after{opacity:1}
+.gram .cap{font-family:var(--hand);font-size:20px;font-weight:700;line-height:1.1;margin-top:9px;text-align:center}
+.gram .tag{display:block;text-align:center;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-top:3px}
+.ig-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ig-badge{display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px 8px 8px;font-weight:800;box-shadow:3px 3px 0 var(--ink);text-decoration:none;color:var(--ink)}
+.ig-badge .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(45deg,#f9a03f,#e1306c 55%,#833ab4)}
+@media (max-width:1060px){.gram{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:620px){.gram{grid-template-columns:1fr 1fr;gap:18px 14px}.gram .cap{font-size:17px}}
+
+.ggrid{columns:4 220px;column-gap:18px}
+.gtile{display:block;width:100%;margin:0 0 18px;padding:8px 8px 10px;border:1.5px solid var(--ink);background:var(--card);box-shadow:var(--shadow);break-inside:avoid;text-align:left;cursor:zoom-in;transition:transform .2s}
+.gtile:nth-child(3n+1){transform:rotate(-.8deg)}.gtile:nth-child(3n+2){transform:rotate(.7deg)}
+.gtile:hover{transform:rotate(0) translateY(-3px)}
+.gtile img{display:block;width:100%;height:auto;background:var(--cream)}
+.gcap{display:block;font-family:var(--hand);font-size:19px;font-weight:700;margin-top:8px;line-height:1.1}
+.light{position:fixed;inset:0;z-index:80;background:rgba(21,19,17,.88);display:flex;align-items:center;justify-content:center;gap:14px;padding:calc(20px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb-fig{margin:0;background:var(--card);padding:12px 12px 14px;border:1.5px solid var(--ink);max-width:min(900px,100%);max-height:100%;display:flex;flex-direction:column;min-width:0}
+.lb-fig img{max-height:calc(100vh - 180px);max-width:100%;object-fit:contain;display:block;margin:0 auto}
+.lb-fig figcaption{padding-top:10px;display:grid;gap:6px}
+#lbCap b{font-family:var(--hand);font-size:24px;display:block;line-height:1}
+#lbCap span{font-size:12.5px;color:var(--muted);font-weight:600}
+.lb-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;font-weight:700;flex-wrap:wrap}
+.lb-row a{color:var(--brand)}
+.lb-nav{flex:none;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:var(--card);font-size:30px;line-height:1;display:grid;place-items:center;box-shadow:2px 2px 0 var(--ink)}
+.lb-x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:var(--note);font-size:26px;line-height:1}
+@media (max-width:620px){.ggrid{columns:2 140px;column-gap:12px}.gtile{margin-bottom:12px}.gcap{font-size:16px}.lb-nav{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));width:44px;height:44px}.lb-prev{left:20px}.lb-next{right:20px}.lb-fig img{max-height:calc(100vh - 240px)}}
+
+/* booking (easy flow) */
+.book{display:grid;grid-template-columns:1fr 360px;gap:36px;align-items:start}
+.card{background:var(--card);border:1.5px solid var(--ink);padding:28px;box-shadow:6px 6px 0 var(--ink)}
+.card h3{font-size:clamp(26px,3vw,36px);margin-bottom:18px}
+.bk-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:26px}
+.bk-step{border:0;background:none;padding:0;text-align:left;display:flex;flex-direction:column;gap:6px;color:var(--muted)}
+.bk-step::before{content:"";height:5px;border-radius:3px;background:var(--line)}
+.bk-step i{display:none}
+.bk-step span{font-size:12px;font-weight:800}
+.bk-step.done{color:var(--ink)}.bk-step.done::before{background:var(--ink)}
+.bk-step.cur{color:var(--brand)}.bk-step.cur::before{background:var(--brand)}
+.bk-step:disabled{cursor:default}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.tile{border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:14px;text-align:left;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,transform .15s}
+.tile:hover{border-color:var(--ink);transform:translateY(-2px)}
+.tile[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft)}
+.tile .ic{width:36px;height:36px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.tile[aria-pressed="true"] .ic{background:var(--brand);color:#fff}
+.tile b{font-size:14.5px;font-weight:800;line-height:1.2}
+.tile small{color:var(--muted);font-size:12px;line-height:1.3}
+.bk-q{margin-bottom:22px}
+.bk-l{display:block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.qchips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.qchip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:9px 15px;font-size:14px;font-weight:700}
+.qchip:hover{border-color:var(--ink)}
+.qchip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.qdate{border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:700;background:var(--card)}
+.qdate:focus{outline:none;border-color:var(--ink)}
+.bk-check{display:inline-flex;gap:8px;align-items:center;margin-top:10px;font-size:14px;font-weight:600;color:var(--ink2)}
+.bk-check input{accent-color:var(--brand);width:18px;height:18px}
+.bk-pk{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.bk-pkc{position:relative;text-align:left;border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.bk-pkc:hover{border-color:var(--ink)}
+.bk-pkc[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft);box-shadow:inset 0 0 0 1px var(--brand)}
+.bk-pkc b{font-size:16px;font-weight:900}
+.bk-pkc small{color:var(--muted);font-size:13px}
+.bk-pkc .inc{font-size:12.5px;color:var(--ink2);margin-top:4px}
+.bk-pkc .tagx{position:absolute;top:10px;right:10px;font-family:var(--hand);font-size:18px;font-weight:700;color:var(--brand)}
+.bk-pkc.advise{border-style:dashed}
+.bk-more{margin-top:10px;border-top:1.5px dashed var(--line);padding-top:12px}
+.bk-more summary{cursor:pointer;font-weight:800;font-size:14px;color:var(--ink2)}
+.bk-more summary:hover{color:var(--brand)}
+.bk-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:26px;flex-wrap:wrap}
+.bk-alt{margin-top:20px;font-size:14px;color:var(--muted)}
+.bk-tick{width:70px;height:70px;border-radius:50%;background:var(--wa);color:var(--wa-ink);display:grid;place-items:center;font-size:34px;font-weight:900;margin:0 auto 12px;border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--ink2);min-width:0}
+.field input,.field select,.field textarea{font-weight:600;font-size:16px;letter-spacing:0;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--card);width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink);outline:none}
+.field textarea{min-height:90px;resize:vertical}
+.full{grid-column:1/-1}
+.err{color:var(--bad);font-size:14px;font-weight:700;min-height:1.2em;margin-top:12px}
+.actions{display:flex;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap}
+.receipt{position:sticky;top:100px;background:var(--note);padding:26px 24px 30px;box-shadow:var(--shadow);transform:rotate(1.2deg)}
+.receipt::before{content:"";position:absolute;top:-12px;left:50%;width:90px;height:24px;transform:translateX(-50%) rotate(-3deg);background:var(--tape);opacity:.85}
+.receipt h3{font-size:26px;margin-top:4px}
+.receipt dl{margin:16px 0 0;display:grid;grid-template-columns:auto 1fr;gap:0;font-size:14px}
+.receipt dt,.receipt dd{padding:7px 0;border-bottom:1.5px dashed rgba(21,19,17,.15);margin:0}
+.receipt dt{color:var(--muted);font-weight:700}
+.receipt dd{text-align:right;font-weight:800}
+.receipt .items{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+.receipt .items span{background:var(--card);border:1px solid var(--ink);padding:2px 8px;font-size:12.5px;font-weight:600}
+.receipt .items button{border:0;background:none;color:var(--muted);padding:0 0 0 5px;font-weight:800}
+.receipt .btn-sm{padding:4px 10px;font-size:12px;box-shadow:1px 1px 0 var(--ink)}
+.done{text-align:center}
+.done h2{font-size:clamp(32px,4vw,46px);margin-top:6px}
+pre.msg{text-align:left;white-space:pre-wrap;background:var(--cream);padding:16px;margin-top:12px;font-size:13px;font-family:ui-monospace,Menlo,monospace;border:1px solid var(--line)}
+.saved{display:inline-block;margin-top:14px;font-family:var(--hand);font-size:22px;font-weight:700;color:var(--ok)}
+
+/* dashboard */
+.dash-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.dash-top h2{font-size:clamp(32px,4vw,50px)}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.kpi{background:var(--card);border:1.5px solid var(--ink);padding:16px;box-shadow:3px 3px 0 var(--ink)}
+.kpi span{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kpi b{display:block;font-size:38px;font-weight:900;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi small{font-size:12px;color:var(--muted)}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+.box{background:var(--card);border:1.5px solid var(--ink);padding:18px}
+.box h4{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:150px 1fr 34px;gap:10px;align-items:center;font-size:13px}
+.bar i{display:block;height:10px;background:var(--brand);border-radius:5px;min-width:3px}
+.bar em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+.bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:24px}
+.dash-tools .search{font-size:15px}
+.tbl-wrap{overflow-x:auto;margin-top:16px;background:var(--card);border:1.5px solid var(--ink)}
+table.tbl{width:100%;border-collapse:collapse;font-size:13.5px;min-width:940px}
+.tbl th{text-align:left;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 10px;border-bottom:1.5px solid var(--ink);white-space:nowrap;background:var(--cream)}
+.tbl td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tbody tr{cursor:pointer}
+.tbl tbody tr:hover{background:var(--note)}
+.tbl td b{font-weight:800}
+.tbl .num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.st-pill{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;border:1.5px solid currentColor;white-space:nowrap}
+.st-New{color:var(--brand)}.st-Contacted{color:var(--info)}.st-Quoted{color:var(--warn)}.st-Confirmed{color:var(--ok)}.st-Completed{color:var(--ink2)}.st-Cancelled{color:var(--muted)}
+.dash-empty{padding:40px 0;text-align:center;color:var(--muted)}
+.dash-empty h3{font-size:28px;color:var(--ink);margin-bottom:8px}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(520px,100vw);background:var(--card);border-left:1.5px solid var(--ink);z-index:60;display:flex;flex-direction:column;box-shadow:-20px 0 40px rgba(21,19,17,.15);padding-top:env(safe-area-inset-top,0px)}
+.drawer-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1.5px solid var(--ink);background:var(--note)}
+.drawer-h h3{font-size:24px}
+.drawer-b{flex:1;overflow-y:auto;padding:20px;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+.drawer .x{border:0;background:none;font-size:26px;line-height:1;width:36px;height:36px}
+.kv{display:grid;grid-template-columns:120px 1fr;font-size:14px}
+.kv dt,.kv dd{margin:0;padding:8px 0;border-bottom:1px dashed var(--line)}
+.kv dt{color:var(--muted);font-weight:700}
+.kv dd{word-break:break-word;font-weight:600}
+.scrim{position:fixed;inset:0;background:rgba(21,19,17,.3);z-index:55}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--bad);font-weight:700}
+.subtabs{display:flex;gap:8px;margin-top:32px}
+.subtabs button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 14px;font-weight:800;font-size:13px}
+.subtabs button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+footer{border-top:1.5px solid var(--ink);margin-top:100px;background:var(--card)}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-block:44px;font-size:14px;color:var(--muted)}
+footer .tag{font-family:var(--hand);font-size:36px;font-weight:700;color:var(--brand);line-height:1;margin-bottom:10px}
+footer b{display:block;color:var(--ink);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+
+/* dock + chat */
+.dock{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.dock-btn{display:flex;align-items:center;gap:10px;border-radius:999px;padding:8px 16px 8px 8px;font-weight:800;font-size:14px;border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);text-decoration:none}
+.dock-btn .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center}
+.dock-nina{background:var(--card);color:var(--ink)}
+.dock-nina .av{background:var(--ink);color:var(--brand);font-family:var(--hand);font-size:26px;font-weight:700}
+.dock-wa{background:var(--wa);color:var(--wa-ink)}
+.dock-wa .av{background:#fff;color:#128c7e}
+.chat{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45;width:min(400px,calc(100vw - 32px));height:min(620px,calc(100vh - 110px));background:var(--card);border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;overflow:hidden;border-radius:18px}
+.chat-h{display:flex;align-items:center;gap:12px;padding:14px 14px 14px 16px;border-bottom:1.5px solid var(--ink);background:var(--note)}
+.chat-h .av{width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--brand);display:grid;place-items:center;font-family:var(--hand);font-size:28px;font-weight:700;flex:none;position:relative}
+.chat-h .av::after{content:"";position:absolute;right:-1px;bottom:-1px;width:12px;height:12px;border-radius:50%;background:var(--wa);border:2px solid var(--note)}
+.chat-h b{display:block;font-size:16px;font-weight:900}
+.chat-h small{color:var(--muted);font-size:12px;font-weight:600}
+.chat-h .x{margin-left:auto;border:0;background:none;width:34px;height:34px;font-size:24px;line-height:1;border-radius:50%}
+.handoff{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;background:#eafbf1;border-bottom:1px solid #cdeedb;font-size:12.5px;font-weight:700;color:#0b5132}
+.handoff a{color:#0b5132;font-weight:800}
+.log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background-image:radial-gradient(var(--dot) 1px,transparent 1.1px);background-size:18px 18px}
+.msg-b{max-width:86%;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
+.msg-b.nina{background:var(--card);border:1.5px solid var(--ink);border-bottom-left-radius:4px;align-self:flex-start}
+.msg-b.me{background:var(--ink);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.msg-b.typing{color:var(--muted);font-style:italic}
+.acts{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start;max-width:94%}
+.acts button,.acts a{border:1.5px solid var(--ink);background:var(--note);border-radius:999px;padding:6px 11px;font-size:12.5px;font-weight:800;text-decoration:none;color:var(--ink)}
+.acts button:hover{background:var(--ink);color:#fff}
+.acts a.wa{background:var(--wa);color:var(--wa-ink)}
+.chat-f{border-top:1.5px solid var(--ink);padding:10px;display:flex;gap:8px;align-items:flex-end}
+.chat-f textarea{flex:1;border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;resize:none;max-height:110px;min-height:44px;font-size:14px}
+.chat-f textarea:focus{outline:none;border-color:var(--ink)}
+.chat-f button{flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:var(--brand);color:#fff;display:grid;place-items:center}
+.chat-f button:disabled{opacity:.45;cursor:default}
+.chat-note{font-size:11px;color:var(--muted);padding:0 14px 10px;text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) rotate(-1deg);background:var(--note);color:var(--ink);border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:10px 18px;font-size:14px;font-weight:800;z-index:70}
+
+@media (max-width:1060px){.bento{grid-template-columns:repeat(3,1fr)}.cat.big{grid-column:span 3}.spot,.pk-grid{grid-template-columns:1fr 1fr}.why{grid-template-columns:1fr 1fr}.vtypes{grid-template-columns:1fr 1fr}.setups{grid-template-columns:repeat(3,1fr)}.svc-cols{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){.hero .wrap,.intro,.chapter,.offer,.tour,.book,.nina-band,.dash-grid{grid-template-columns:1fr}.chapter:nth-child(even) .polaroid{order:0}.board{min-height:0;display:grid;gap:30px;padding-top:14px}.board .polaroid,.board .concierge,.board .sticky{position:relative;width:auto;inset:auto}.board .sticky{display:none}.steps{grid-template-columns:1fr 1fr}.receipt{position:relative;top:auto;transform:none}footer .wrap{grid-template-columns:1fr}.navl{order:3;width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap}.navr{margin-left:auto}}
+@media (max-width:620px){.bento{grid-template-columns:1fr 1fr}.cat.big{grid-column:span 2}.spot,.pk-grid,.why,.vtypes,.fgrid,.intro .cols,.svc-cols,.bk-pk{grid-template-columns:1fr}.figs{grid-template-columns:1fr 1fr}.setups{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.sec{padding-top:64px}.dock-btn .lbl{display:none}.dock-btn{padding:8px}.nina-face{width:96px;height:96px}.nina-face span{font-size:60px}.langbar .right{margin-left:0}.bar{grid-template-columns:110px 1fr 30px}.cg-grid{grid-template-columns:1fr}.bk-steps span{font-size:10.5px}.card{padding:20px}.offer{padding:22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="langbar"><div class="wrap">
+  <span class="lbl">Our planners speak</span><div class="langs" role="group" aria-label="Preferred language" id="langs"></div>
+  <div class="right"><div class="cur" role="group" aria-label="Currency"><button data-cur="AED" aria-pressed="true">AED</button><button data-cur="USD" aria-pressed="false">USD</button></div><span>WhatsApp 24/7 · +971 58 564 9298</span><a class="ig-link" href="https://www.instagram.com/nilnaevents/" target="_blank" rel="noopener" aria-label="NILNA Events on Instagram" style="color:#fff"><svg class="ig-ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>@nilnaevents</a></div>
+</div></div>
+
+<header class="top">
+  <div class="wrap">
+    <nav class="navl" role="tablist" aria-label="Site sections">
+      <button class="tab" role="tab" data-tab="home" aria-selected="true">Home</button>
+      <button class="tab" role="tab" data-tab="packages" aria-selected="false">Packages</button>
+      <button class="tab" role="tab" data-tab="services" aria-selected="false">Services</button>
+      <button class="tab" role="tab" data-tab="venues" aria-selected="false">Venues</button>
+      <button class="tab" role="tab" data-tab="gallery" aria-selected="false">Gallery</button>
+      <button class="tab staff" role="tab" data-tab="dashboard" aria-selected="false" id="dashTab" hidden>Dashboard</button>
+    </nav>
+    <a class="logo" href="#home" data-go="home" aria-label="NILNA Events home"><span class="wm">NILNA</span><small>EVENTS</small></a>
+    <div class="navr" style="gap:10px;align-items:center"><a class="ig-btn" href="https://www.instagram.com/nilnaevents/" target="_blank" rel="noopener" aria-label="NILNA Events on Instagram" title="@nilnaevents on Instagram"><svg class="ig-ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><button class="plan-pill" data-go="book" aria-label="Open my event plan">My plan <b id="planCount">0</b></button></div>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section class="panel" id="p-home">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="kicker">Event planning, made easy ✦</div>
+        <h1>Your event, <em>sorted.</em></h1>
+        <p class="lead">Birthdays, proposals, baby welcomes, weddings, openings, National Day and corporate events across the UAE. Pick what you need, and one NILNA planner takes care of everything else.</p>
+        <div class="ctas"><button class="btn btn-accent" data-go="book">Book in 1 minute</button><button class="btn" id="heroNina">Ask Nina</button></div>
+        <div class="arrow-note"><svg width="46" height="30" viewBox="0 0 46 30" fill="none" stroke="#ed4308" stroke-width="2.2" stroke-linecap="round"><path d="M2 6c10 16 24 20 38 14"/><path d="M33 13l7 7-9 3"/></svg>no forms, no stress, reply on WhatsApp</div>
+      </div>
+      <div class="board">
+        <figure class="polaroid" style="margin:0"><div class="art photo"><img src="ig/04-DeyhqKwEYXc.jpg" alt="NILNA welcome baby setup in a hospital room with a floral welcome board and blue and gold balloons" width="488" height="640"></div><figcaption>Welcome, baby Matteo ♡</figcaption></figure>
+        <form class="concierge" id="ticket" aria-label="Start your event">
+          <div class="kicker">Start here</div>
+          <h3>What's the occasion?</h3>
+          <span id="tkTitle"></span><span id="tkNo"></span><span id="tkNo2"></span>
+          <div class="cg-grid">
+            <label class="cg-f full"><span>Occasion</span><select id="tType"></select></label>
+            <label class="cg-f"><span>Date</span><input id="tDate" type="date" value="2026-12-12"></label>
+            <label class="cg-f"><span>Guests</span><select id="tGuests"></select></label>
+            <label class="cg-f"><span>Emirate</span><select id="tEm"></select></label>
+            <label class="cg-f"><span>Venue</span><select id="tVenue"></select></label>
+          </div>
+          <button class="btn btn-dark" type="submit">Show me packages →</button>
+        </form>
+        <div class="sticky" aria-hidden="true">Nina is <b>online</b> 24/7 in 5 languages ♡</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="season"><div class="wrap"><div>
+    <span class="flag" aria-hidden="true"><i></i><span><b></b><b></b><b></b></span></span>
+    <p>The UAE season: <b>Flag Day, 3 November</b> and <b>National Day, 2 December</b>.</p>
+    <div class="btns"><button class="btn btn-sm" data-season="flagday">Flag Day</button><button class="btn btn-sm btn-dark" data-season="nationalday">National Day</button></div>
+  </div></div></div>
+
+  <div class="wrap">
+    <section class="sec intro">
+      <div><div class="kicker">Hi, we're NILNA Events</div><p class="big" style="margin:14px 0 0">We plan the details, <em>you enjoy the day.</em></p></div>
+      <div>
+        <div class="cols">
+          <p style="margin:0">From a rose-petal proposal on a private terrace to a 1,000-guest National Day festival, NILNA Events designs the concept, sources the venue, brings in trusted suppliers and runs the day.</p>
+          <p style="margin:0">One planner speaks your language, keeps your budget and answers on WhatsApp around the clock. Nina, our AI concierge, is here any time you want ideas.</p>
+        </div>
+        <div class="figs"><div><b id="nSvc">116</b>Services</div><div><b id="nPkg">30</b>Packages</div><div><b>7</b>Emirates</div><div><b>5</b>Languages</div></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-head"><div><div class="kicker a">Occasions</div><h2 style="margin-top:12px">What are we <em>celebrating?</em></h2></div></div>
+      <div class="occ" id="occ"></div>
+    </section>
+
+    <section class="sec">
+      <div class="chapters" id="chapters"></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-head"><div><div class="kicker a">Curated</div><h2 style="margin-top:12px">Most booked <em>this season</em></h2></div><button class="link" data-go="packages">All packages</button></div>
+      <div class="spot" id="spot"></div>
+    </section>
+
+    <section class="sec">
+      <div class="offer">
+        <div class="art" data-art="henna"><canvas></canvas></div>
+        <div class="txt"><div class="kicker a">Wedding season 2026–2027</div><h2>Free henna night <em>setup!</em></h2><p>Confirm a Signature or Royal wedding before 31 December 2026 and we'll style your henna night: majlis setup, florals and hospitality staff included.</p><button class="btn btn-dark" id="offerBtn">Wedding packages</button></div>
+      </div>
+    </section>
+
+    <section class="sec" id="gallery">
+      <div class="sec-head"><div><div class="kicker a">Our work</div><h2 style="margin-top:12px">Fresh from <em>@nilnaevents</em></h2><p>Real NILNA setups from our Instagram. Tap any photo to see the full post.</p></div>
+        <a class="ig-badge" href="https://www.instagram.com/nilnaevents/" target="_blank" rel="noopener"><span class="av"><svg class="ig-ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>Follow @nilnaevents</a></div>
+      <div class="gram" id="gram"></div>
+      <div style="margin-top:30px;text-align:center"><button class="btn btn-dark" data-go="gallery">See the full gallery →</button></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-head"><div><div class="kicker a">Departments</div><h2 style="margin-top:12px">Every service, <em>one house</em></h2><p>Eleven departments under one roof, so you never chase separate suppliers.</p></div><button class="link" data-go="services">Browse services</button></div>
+      <div class="bento" id="bento"></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-head"><div><div class="kicker a">The journey</div><h2 style="margin-top:12px">How we <em>work</em></h2></div></div>
+      <div class="steps">
+        <div class="step"><div class="dot">01</div><h3>Share the idea</h3><p>Tell Nina, fill in the form, or message a planner on WhatsApp.</p></div>
+        <div class="step"><div class="dot">02</div><h3>Concept &amp; quote</h3><p>A theme concept and an itemised quote in AED or USD within 24 hours.</p></div>
+        <div class="step"><div class="dot">03</div><h3>We orchestrate</h3><p>Venue, suppliers, permits, production and rehearsals, all handled.</p></div>
+        <div class="step"><div class="dot">04</div><h3>You celebrate</h3><p>Our crew sets up, runs the day and clears everything after.</p></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="nina-band">
+        <div class="nina-face" aria-hidden="true"><span>N</span></div>
+        <div>
+          <div class="kicker a">AI concierge · Online 24/7</div>
+          <h2 style="margin-top:10px">Meet <em>Nina</em></h2>
+          <p>Nina knows every NILNA package and service. She suggests ideas, builds your plan, speaks your language and hands you to a human planner on WhatsApp whenever you like.</p>
+          <div class="prompts" id="ninaPrompts"></div>
+          <div class="human">Prefer a person? <a class="btn btn-wa btn-sm" id="humanLink" href="#" target="_blank" rel="noopener">WhatsApp a planner</a><span>+971 58 564 9298</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-head"><div><div class="kicker a">Why NILNA</div><h2 style="margin-top:12px">Details, <em>handled</em></h2></div></div>
+      <div class="why">
+        <div><b>One planner</b><span>A dedicated contact from first call to final invoice.</span></div>
+        <div><b>Every scale</b><span>Home surprises to 1,000+ guest productions.</span></div>
+        <div><b>Custom concepts</b><span>Designed for you, never copied from a catalogue.</span></div>
+        <div><b>Trusted suppliers</b><span>Vetted UAE caterers, venues, AV crews and artists.</span></div>
+        <div><b>Permits handled</b><span>Approvals, venue, hospital and mall requirements.</span></div>
+        <div><b>Cultural fluency</b><span>Henna nights, nikah, majlis and Emirati heritage.</span></div>
+        <div><b>Five languages</b><span>Arabic, English, Hindi, Urdu and French. Choose yours at the top.</span></div>
+        <div><b>AI and human</b><span>Nina answers instantly; a planner confirms every detail.</span></div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="panel" id="p-services" hidden>
+  <div class="wrap sec">
+    <div class="sec-head"><div><div class="kicker a">Services</div><h2 style="margin-top:12px">Compose your <em>event</em></h2><p>Add any service to your plan. Your planner confirms availability and pricing.</p></div><button class="link" id="askNinaSvc">Ask Nina</button></div>
+    <div class="toolbar"><input class="search" id="sq" type="search" placeholder="Search balloons, LED walls, henna, flag raising…" aria-label="Search services"></div>
+    <div class="chips" id="catChips"></div>
+    <div id="svcList"></div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="panel" id="p-packages" hidden>
+  <div class="wrap sec">
+    <div class="sec-head"><div><div class="kicker a">Packages</div><h2 style="margin-top:12px">Curated <em>collections</em></h2><p>Starting points you can tailor. Quoted per event in AED or USD.</p></div></div>
+    <div class="chips" id="pkgChips" style="margin-top:0;margin-bottom:36px"></div>
+    <div class="pk-grid" id="pkgs"></div>
+  </div>
+</section>
+
+<!-- VENUES -->
+<section class="panel" id="p-venues" hidden>
+  <div class="wrap sec">
+    <div class="sec-head"><div><div class="kicker a">Visual tour</div><h2 style="margin-top:12px">Watch the room <em>come alive</em></h2><p>Choose a venue and move through each stage of the setup, from an empty space to guests arriving.</p></div></div>
+    <div class="tour">
+      <div class="tour-stage"><svg id="tourSvg" viewBox="0 0 800 440" role="img" aria-label="Venue setup visualisation"></svg><div class="tour-cap" id="tourCap"></div></div>
+      <div class="tour-side">
+        <div class="field"><span>Venue</span></div>
+        <div class="chips" id="tourVenues" style="margin-top:8px"></div>
+        <div class="field" style="margin-top:24px"><span>Setup stage</span></div>
+        <input type="range" id="tourRange" min="0" max="4" value="4" step="1" aria-label="Setup stage">
+        <ol class="tour-steps" id="tourSteps"></ol>
+        <div class="tour-ctas"><button class="btn btn-accent btn-sm" id="tourPlay">Play the setup</button><button class="btn btn-sm" id="visitBtn">Book a walkthrough</button></div>
+      </div>
+    </div>
+    <div class="sec-head" style="margin-top:80px"><div><div class="kicker a">Venues</div><h2 style="margin-top:12px">Spaces we <em>source</em></h2><p>From villa gardens to 2,500-guest ballrooms. Tap one to add it to your plan.</p></div><button class="btn btn-dark btn-sm" id="rfpBtn">Request a proposal</button></div>
+    <div class="vtypes" id="vtypes"></div>
+    <div class="sec-head" style="margin-top:72px"><div><div class="kicker a">Layouts</div><h2 style="margin-top:12px">Seating <em>styles</em></h2><p>Guide capacities for a 500 m² hall. Your planner confirms exact numbers with the venue.</p></div></div>
+    <div class="setups" id="setups"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="panel" id="p-gallery" hidden>
+  <div class="wrap sec">
+    <div class="sec-head"><div><div class="kicker a">Gallery</div><h2 style="margin-top:12px">Our work, <em>up close</em></h2><p><b id="galCount">37</b> photos from real NILNA setups on Instagram. Tap any photo to view it large.</p></div>
+      <a class="ig-badge" href="https://www.instagram.com/nilnaevents/" target="_blank" rel="noopener"><span class="av"><svg class="ig-ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>Follow @nilnaevents</a></div>
+    <div class="chips" id="galChips" style="margin-top:0;margin-bottom:28px"></div>
+    <div class="ggrid" id="galGrid"></div>
+  </div>
+</section>
+<div class="light" id="light" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-x" aria-label="Close photo viewer">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">‹</button>
+  <figure class="lb-fig"><img id="lbImg" alt=""><figcaption><div id="lbCap"></div><div class="lb-row"><span id="lbNum"></span><a id="lbLink" class="ig-link" href="#" target="_blank" rel="noopener">View on Instagram →</a></div></figcaption></figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">›</button>
+</div>
+
+<!-- BOOK -->
+<section class="panel" id="p-book" hidden>
+  <div class="wrap sec">
+    <div class="sec-head"><div><div class="kicker a">Your plan</div><h2 style="margin-top:12px">Book your <em>event</em></h2><p>Tap through four quick questions. It takes about a minute.</p></div></div>
+    <div class="book"><div class="card" id="flow"></div><aside class="receipt" id="receipt"></aside></div>
+  </div>
+</section>
+
+<!-- DASHBOARD (staff only) -->
+<section class="panel" id="p-dashboard" hidden>
+  <div class="wrap sec">
+    <div class="dash-top">
+      <div><div class="kicker a">Staff only · Bookings &amp; customers</div><h2 style="margin-top:12px">Booking <em>dashboard</em></h2></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-sm" id="importBtn">Import WhatsApp message</button><button class="btn btn-sm btn-dark" id="addBtn">Add booking</button><button class="btn btn-sm" id="csvBtn">Export CSV</button></div>
+    </div>
+    <div id="dashBody"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><div class="tag">Your event, sorted.</div>NILNA Events Management · luxury event planning &amp; decoration in Dubai, UAE.</div>
+    <div><b>Concierge</b>WhatsApp / phone: +971 58 564 9298<br>info@nilnaevents.com<br>Dubai, United Arab Emirates</div>
+    <div><b>Explore</b><a href="#packages" data-go="packages">Packages</a> · <a href="#services" data-go="services">Services</a> · <a href="#venues" data-go="venues">Visual tour</a><br><a href="https://nilnaevents.com" target="_blank" rel="noopener">nilnaevents.com</a> · <a class="ig-link" href="https://www.instagram.com/nilnaevents/" target="_blank" rel="noopener" style="color:var(--brand)"><svg class="ig-ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>@nilnaevents</a></div>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <a class="dock-btn dock-wa" id="dockWa" href="#" target="_blank" rel="noopener"><span class="av" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></span><span class="lbl">Talk to a human</span></a>
+  <button class="dock-btn dock-nina" id="dockNina"><span class="av" aria-hidden="true">N</span><span class="lbl">Ask Nina</span></button>
+</div>
+
+<section class="chat" id="chat" hidden aria-label="Chat with Nina">
+  <div class="chat-h"><span class="av" aria-hidden="true">N</span><div><b>Nina</b><small id="ninaMode">AI concierge · NILNA Events</small></div><button class="x" id="chatX" aria-label="Close chat">×</button></div>
+  <div class="handoff"><span>Want a real person?</span><a id="chatWa" href="#" target="_blank" rel="noopener">WhatsApp a planner →</a></div>
+  <div class="log" id="log" aria-live="polite"></div>
+  <form class="chat-f" id="chatForm"><textarea id="chatIn" rows="1" placeholder="Ask Nina about your event…" aria-label="Message Nina"></textarea><button id="chatSend" type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+  <div class="chat-note">Nina is an AI and can make mistakes. A planner confirms every booking.</div>
+</section>
+<div id="drawerRoot"></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+
+const P={heart:"M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z",ring:"M12 9a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM9 3h6l-3 6z",gift:"M5 21h14v-8H5zM3 9h18v4H3zM12 9v12M12 9s-1-5-4-4 4 4 4 4 1-5 4-4-4 4-4 4",baby:"M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6 21c0-3.5 2.7-6 6-6s6 2.5 6 6",brief:"M4 8h16v11H4zM9 8V5h6v3",mic:"M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM5 11a7 7 0 0 0 14 0M12 18v3",star:"M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2 8 12.7 4 8.8 9.5 8z",cap:"M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5",flag:"M5 21V4M5 4h11l-2 4 2 4H5",music:"M9 18V6l11-2v12M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM20 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z",moon:"M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z",expo:"M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"};
+const svg=k=>`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="${P[k]}"/></svg>`;
+const OCC=[
+ ["Wedding","Local & destination","ring","wedding"],["Henna & Nikah","Traditional nights","moon","wedding"],["Surprise Proposal","Home, beach, yacht or desert","heart","proposal"],
+ ["Birthday","Home, office & kids","gift","birthday"],["Baby Shower","Showers & reveals","baby","baby"],["Welcome Baby","Hospital or home setup","heart","baby"],["Graduation","Milestone parties","cap","social"],
+ ["Corporate Event","Launches, galas, festivals","brief","corporate"],["Conference & Exhibition","Summits, seminars, stands","mic","corporate"],
+ ["Grand Opening","Restaurants, shops & supermarkets","flag","opening"],["UAE National Day","Eid Al Etihad · 2 December","flag","nationalday"],["UAE Flag Day","Flag raising · 3 November","flag","flagday"],["Other","Tell us your idea","star","social"]
+];
+const CATS=[
+ ["Social & private occasions","Weddings, birthdays, showers, proposals and every milestone in between.",[
+  ["Weddings","Themed, local and destination"],["Engagements & proposals",""],["Surprise proposal setups","Home, rooftop, beach, yacht or desert"],["Henna, mehndi & nikah nights",""],["Birthday parties","Kids, teens and adults"],["Home birthday setup","Surprise décor ready before guests arrive"],["Office birthday setup","Desk, pantry or meeting room"],["Baby showers & gender reveals",""],["Newborn welcomes & naming ceremonies","Including mubarakiya"],["Welcome baby hospital room décor","Ready before mum and baby arrive"],["Welcome baby home setup","Entrance, living room and guest table"],["Graduation parties",""],["Anniversaries",""],["Housewarmings",""],["Surprise parties",""],["Hen parties",""],["Yacht parties & boat cruises",""],["Seasonal & National Day celebrations",""],["UAE Flag Day décor & flag-raising","3 November"],["UAE National Day office & home décor","Eid Al Etihad, 2 December"],["UAE National Day heritage celebrations","Ayyala, henna, luqaimat, heritage corner"],["Flag Day building & façade dressing","Large flags, banners and lighting"],["Cultural & traditional events",""],["School events",""]]],
+ ["Corporate & MICE","Meetings, incentives, conferences and exhibitions run to brief.",[
+  ["Conferences & seminars",""],["Product & brand launches",""],["Restaurant & shop opening décor","Balloon arch, ribbon cutting, red carpet"],["Gala dinners",""],["Award ceremonies",""],["Team building & retreats",""],["Family days",""],["Networking events",""],["Exhibitions & trade shows",""],["Roadshows",""],["Government events",""],["Incentives & destination management",""],["Hybrid & virtual events",""],["Property launches",""],["CSR & wellness programmes",""]]],
+ ["Public & experiential","Festivals, activations and crowd moments people talk about.",[
+  ["Festivals & concerts",""],["Sports events",""],["Brand activations",""],["Mall & retail activations","Atrium events and brand zones"],["Supermarket & hypermarket promotions","Sampling booths, promoters, aisle décor"],["Seasonal mall & store décor","Ramadan, Eid, National Day, festive"],["Fashion shows",""],["Street markets, fairs & carnivals",""],["Pop-up shows",""]]],
+ ["Planning & management","The planning work that keeps every detail on time and on budget.",[
+  ["Full event planning","Concept to completion"],["Concept & theme design",""],["Venue sourcing",""],["Vendor sourcing & coordination",""],["Budget management",""],["Guest list & RSVP management",""],["Invitations & stationery",""],["On-site & day-of coordination",""],["Logistics",""],["Permits & approvals",""],["Hotel, accommodation & travel",""],["Event strategy, marketing & PR",""],["Social media & content creation",""],["Post-event analysis & ROI",""],["Seating & floor plans",""]]],
+ ["Décor & styling","Balloons, florals, backdrops and stages designed around your theme.",[
+  ["Balloon décor","Garlands, arches, sculptures"],["Floral arrangements",""],["Backdrops & photo walls",""],["Cake & dessert table styling",""],["Stage & ballroom design","Including kosha"],["Table styling & linen",""],["Themed décor",""],["Social-media-ready installations",""],["Tents, marquees & canopies",""],["Majlis & Arabic setups",""],["Carpets, fabric & drapery",""]]],
+ ["Food & hospitality","Menus, cakes, drinks and the people who serve your guests.",[
+  ["Catering & menu planning",""],["Themed cakes & desserts",""],["Mocktail & drinks bars",""],["Hospitality staff","Arabic coffee, tea and refreshments"],["Hostesses, ushers & receptionists",""],["Event staffing",""]]],
+ ["Entertainment","DJs, live acts, kids entertainers and headline talent.",[
+  ["DJs",""],["Live music & bands","Including oud and traditional bands"],["Performers, dancers & stage shows",""],["Celebrity & artist booking",""],["Kids entertainers","Magicians, clowns, mascots, characters"],["Face painting",""],["Arts & crafts workshops",""],["Bouncy castles & inflatables",""],["Games hosts & interactive activities",""],["Singing telegrams",""]]],
+ ["Production & technology","Sound, light, LED, staging and builds by an in-house crew.",[
+  ["Sound systems",""],["Lighting design",""],["LED walls & screens",""],["Staging & trussing",""],["AV equipment rental",""],["Special effects","Cold pyro, smoke, haze"],["3D projection mapping",""],["Live streaming",""],["Fabrication & set building",""],["Exhibition stand building",""],["Interior fit-outs",""],["Photo booths",""],["Event tech & interactive displays",""]]],
+ ["Photo & video","Photographers, films and content ready to share the same day.",[
+  ["Photography",""],["Videography & event films",""],["Albums",""],["Video & content production",""]]],
+ ["Rentals & supplies","Furniture, VIP seating, banquet kit and party supplies.",[
+  ["Furniture rental",""],["VIP tables & chairs",""],["Banquet equipment & linen",""],["Dance floors",""],["Party supplies",""],["Costumes",""]]],
+ ["Gifts & favours","Personalised touches guests take home.",[
+  ["Favours & handmade gifts",""],["Event souvenirs & guest gifting",""],["Perfume tables",""]]]
+];
+const PKGS={
+ social:{label:"Private celebrations",list:[
+  {n:"Essential",for:"Home parties up to 30 guests",f:["Theme concept","Balloon décor & backdrop","Cake & dessert table styling","Table styling","Setup & teardown"]},
+  {n:"Signature",feat:1,for:"Parties of 30 – 100 guests",f:["Everything in Essential","Floral arrangements","Catering & themed cake","DJ or kids entertainer","Photography","On-site coordinator"]},
+  {n:"Grand",for:"Venue celebrations of 100+ guests",f:["Everything in Signature","Venue sourcing","Stage, sound & lighting","Videography & photo booth","Favours & guest gifting","Full event planning"]}]},
+ opening:{label:"Restaurant & shop openings",list:[
+  {n:"Soft Opening",for:"Restaurants, cafés, salons and shops",f:["Entrance balloon arch in your brand colours","Grand opening banner & signage","Ribbon-cutting setup with scissors & tray","Floral stands at the entrance","Branded photo wall","Setup before opening & teardown after"]},
+  {n:"Grand Opening",feat:1,for:"Restaurant grand opening with invited guests",f:["Everything in Soft Opening","Interior décor & table styling","Red carpet & stanchions","Welcome hostesses & ushers","DJ or live music","Photographer, videographer & social media content","Tasting menu or canapé service setup"]},
+  {n:"Opening Launch Event",for:"Flagship stores, hypermarkets, supermarkets & malls",f:["Everything in Grand Opening","Stage, sound, lighting & LED screen","MC, performers or celebrity guest","Cold-pyro or confetti moment at ribbon cutting","Influencer & media invitations","Permits & mall or landlord coordination"]}]},
+ flagday:{label:"UAE Flag Day",list:[
+  {n:"Flag Day Essentials",for:"Offices, shops & villas · 3 November",f:["Wall-mounted or desk UAE flags","Entrance & reception décor in flag colours","Red, green, white & black balloon garland","Flag Day banner or welcome sign","Hand flags & pins for staff or family","Installation the day before"]},
+  {n:"Flag-Raising Ceremony",feat:1,for:"Companies, schools & government entities",f:["Flagpole supply & installation","Ceremony setup for 11am flag raising","National anthem sound system","Guard of honour or student line-up guidance","Flag-colour décor around the ceremony area","Photographer & short video for social media","Arabic coffee & dates for attendees"]},
+  {n:"Flag Day Building Dressing",for:"Towers, malls & large facilities",f:["Large-format façade flags & banners","Lobby, atrium & entrance installations","Lighting in flag colours","Safety-rated rigging & height work","Landlord & authority approvals","Removal after the season"]}]},
+ nationalday:{label:"UAE National Day",list:[
+  {n:"National Day Décor",for:"Eid Al Etihad, 2 December · offices, shops & villas",f:["Full office, lobby or villa decoration","UAE flag drapes, bunting & hanging décor","National Day photo backdrop","Balloon arch in flag colours","Majlis corner with Arabic coffee & dates","Installation before the holiday & removal after"]},
+  {n:"National Day Celebration",feat:1,for:"Company events, schools & communities",f:["Everything in National Day Décor","Traditional Ayyala or Harbiya performers","Henna artist & Emirati heritage corner","Luqaimat, Arabic coffee & traditional food","Kandura & abaya photo corner","Stage, sound & LED screen","Photo, video & social media content"]},
+  {n:"National Day Festival",for:"Malls, communities & public events",f:["Everything in National Day Celebration","Heritage village with souq stalls","Fireworks or cold-pyro finale","Kids activities, face painting & mascots","Fabricated photo installations & 3D letters","Hostesses, security & crowd management","Permits & authority approvals"]}]},
+ retail:{label:"Malls, hypermarkets & supermarkets",list:[
+  {n:"In-Store Promotion",for:"Supermarkets & hypermarkets",f:["Promotion zone & aisle-end décor","Branded sampling or tasting booth","Balloon and banner dressing","Promoters & brand ambassadors","Price and offer signage installation","Night setup without disrupting shoppers"]},
+  {n:"Seasonal Store Décor",feat:1,for:"Ramadan, Eid, National Day, back to school & festive seasons",f:["Seasonal theme concept for the whole store or mall","Entrance, atrium & ceiling installations","Lanterns, lights & hanging décor","Photo spots for shoppers","Window and display styling","Install before season & removal after","Mall and safety regulations followed"]},
+  {n:"Mall Activation",for:"Atrium events, store openings & brand launches",f:["Atrium stage, sound, lighting & LED screen","Fabricated booths & branded set","Kids activities, performers & mascots","MC, giveaways & competitions","Hostesses, crowd control & staffing","Mall permits & landlord coordination","Photo, video & social media content"]}]},
+ proposal:{label:"Surprise proposals",list:[
+  {n:"Intimate Proposal",for:"At home, hotel room or private terrace",f:["Rose petal path & candle setup","\"Will you marry me?\" light-up letters or neon sign","Heart balloon or floral arch","Romantic table for two","Secret setup coordinated with you","Teardown after the moment"]},
+  {n:"Signature Proposal",feat:1,for:"Beach, rooftop, garden or restaurant",f:["Everything in Intimate","Venue sourcing & booking","Floral ring backdrop or flower wall","Hidden photographer & videographer","Live violinist or musician","Dinner, cake & mocktail toast","Coordinator to manage the surprise timing"]},
+  {n:"Luxury Proposal",for:"Yacht, desert camp or private island",f:["Everything in Signature","Private yacht or desert setup","Fireworks or cold-pyro moment","Drone video capture","Celebration party for family & friends after","Engagement styling & guest décor"]}]},
+ birthday:{label:"Birthday setups",list:[
+  {n:"Home Birthday",feat:1,for:"Birthday surprise or party at home, up to 50 guests",f:["Theme concept & colour palette","Balloon garland & name or age balloons","Personalised backdrop","Cake & dessert table styling","Table styling","Setup before guests arrive & teardown after"]},
+  {n:"Office Birthday",for:"Colleague surprise or monthly team birthdays",f:["Desk, pantry or meeting room décor","Balloon arch & banner with name","Cake & snacks table","Branded or themed backdrop for photos","Quick setup outside working hours","Building and office rules followed"]},
+  {n:"Kids Party",for:"Kids birthday at home, garden or venue",f:["Everything in Home Birthday","Kids entertainer, magician or mascot","Face painting & games host","Bouncy castle on request","Themed cake & goodie bags","Photography"]}]},
+ baby:{label:"Baby shower & welcome baby",list:[
+  {n:"Hospital Welcome",for:"Welcome baby setup in the hospital room",f:["Room décor in your chosen colours","Balloon garland & name balloons","Welcome baby backdrop or door sign","Floral arrangement","Sweets & chocolate table for visitors","Ready before mum and baby return to the room","Hospital decoration rules followed"]},
+  {n:"Home Welcome",feat:1,for:"Welcome baby home party, up to 50 guests",f:["Entrance & living room décor","Balloon arch & personalised backdrop","Cake & dessert table styling","Mubarakiya favours for guests","Floral arrangements","Photography","Setup & teardown"]},
+  {n:"Baby Shower",for:"Baby shower or gender reveal, at home or a venue",f:["Theme concept & colour palette","Backdrop, balloons & florals","Gender reveal moment (smoke, balloon box or cake)","Catering & themed cake","Games host & activities","Favours & photo corner","On-site coordinator"]}]},
+ wedding:{label:"Weddings & henna",list:[
+  {n:"Intimate",for:"Nikah, henna or small weddings",f:["Concept & theme design","Majlis or stage setup","Floral arrangements","Hospitality staff","Photography"]},
+  {n:"Signature Wedding",feat:1,for:"Weddings of 100 – 300 guests",f:["Everything in Intimate","Venue sourcing","Kosha & ballroom design","Catering & wedding cake","Live music or DJ","Photo & cinematic film","Day-of coordination team"]},
+  {n:"Royal",for:"300+ guests or destination",f:["Everything in Signature","Guest list & RSVP","Hotel & travel for guests","LED, lighting & special effects","Celebrity entertainment","Planner from day one"]}]},
+ corporate:{label:"Corporate & public",list:[
+  {n:"Meeting",for:"Seminars & workshops up to 100",f:["Venue sourcing","AV & sound","Registration & hostesses","Catering & coffee breaks","Branded backdrop"]},
+  {n:"Launch",feat:1,for:"Launches, galas & awards",f:["Everything in Meeting","Stage, LED & lighting","MC & entertainment","Fabrication & set build","Photo, video & content","Guest list management"]},
+  {n:"Production",for:"Conferences, exhibitions & festivals",f:["Everything in Launch","Exhibition stand building","Live streaming & event tech","Permits & logistics","Event marketing & PR","Post-event ROI report"]}]}
+};
+const VENUES=[
+ ["Hotel ballrooms","Up to 2,500 guests","Weddings, galas, conferences, award nights"],
+ ["Meeting & conference rooms","10 – 400 guests","Seminars, board meetings, trainings, launches"],
+ ["Beach & outdoor","20 – 1,000 guests","Proposals, weddings, festivals, family days"],
+ ["Rooftops & terraces","10 – 300 guests","Proposals, birthdays, cocktail evenings"],
+ ["Restaurants & lounges","10 – 200 guests","Private dining, birthdays, team dinners"],
+ ["Villas & homes","5 – 150 guests","Birthdays, baby showers, henna nights"],
+ ["Yachts","2 – 150 guests","Proposals, birthdays, corporate cruises"],
+ ["Desert camps","20 – 1,500 guests","Gala dinners, National Day, incentives"]
+];
+const SETUPS=[
+ ["Theatre",500,"rows"],["Classroom",280,"class"],["U-shape",80,"u"],["Banquet",400,"round"],["Cabaret",300,"cab"],["Cocktail",700,"cock"]
+];
+function setupSvg(k){const c="currentColor",d=[];
+ if(k==="rows")for(let r=0;r<4;r++)for(let i=0;i<7;i++)d.push(`<circle cx="${18+i*14}" cy="${26+r*12}" r="3.5"/>`);
+ if(k==="class")for(let r=0;r<3;r++){d.push(`<rect x="14" y="${24+r*16}" width="40" height="4" rx="1"/><rect x="66" y="${24+r*16}" width="40" height="4" rx="1"/>`);for(let i=0;i<3;i++)d.push(`<circle cx="${20+i*14}" cy="${33+r*16}" r="3"/><circle cx="${72+i*14}" cy="${33+r*16}" r="3"/>`)}
+ if(k==="u"){d.push('<path d="M24 24v40h72V24" fill="none" stroke="currentColor" stroke-width="5"/>');for(let i=0;i<4;i++)d.push(`<circle cx="16" cy="${28+i*11}" r="3"/><circle cx="104" cy="${28+i*11}" r="3"/>`);for(let i=0;i<5;i++)d.push(`<circle cx="${32+i*14}" cy="72" r="3"/>`)}
+ if(k==="round"||k==="cab")[[30,36],[60,36],[90,36],[45,62],[75,62]].forEach(([x,y])=>{d.push(`<circle cx="${x}" cy="${y}" r="7"/>`);const n=k==="round"?8:5;for(let i=0;i<n;i++){const a=(k==="round"?i/n*6.283:Math.PI*.15+i/(n-1)*Math.PI*.7)+(k==="cab"?Math.PI*.5:0);d.push(`<circle cx="${(x+Math.cos(a)*11).toFixed(1)}" cy="${(y+Math.sin(a)*11).toFixed(1)}" r="2.2"/>`)}});
+ if(k==="cock")[[26,34],[56,28],[90,38],[38,62],[74,64],[100,64]].forEach(([x,y])=>{d.push(`<circle cx="${x}" cy="${y}" r="5" fill="none" stroke="currentColor" stroke-width="2"/>`);for(let i=0;i<4;i++){const a=i/4*6.283+.4;d.push(`<circle cx="${(x+Math.cos(a)*10).toFixed(1)}" cy="${(y+Math.sin(a)*10).toFixed(1)}" r="2.2"/>`)}});
+ return `<svg viewBox="0 0 120 84" fill="${c}" aria-hidden="true"><rect x="30" y="4" width="60" height="8" rx="2" opacity=".35"/>${d.join("")}</svg>`}
+/* ---------- extra data ---------- */
+OCC.splice(OCC.length-1,0,["Mall & Supermarket","Promotions, seasons, activations","expo","retail"]);
+const ORDER=["wedding","proposal","birthday","baby","social","opening","retail","nationalday","flagday","corporate"];
+const WA="971585649298", WA_SHOW="+971 58 564 9298";
+const GUESTS=["Up to 30","30 – 100","100 – 300","300 – 1,000","1,000+"];
+const EMIRATES=["Dubai","Abu Dhabi","Sharjah","Ajman","Ras Al Khaimah","Fujairah","Umm Al Quwain","Outside UAE"];
+const VENUE_OPTS=["Not decided","Home or villa","Hospital room","Office","Restaurant","Hotel ballroom","Outdoor or beach","Rooftop","Desert camp","Yacht","Mall or store","Exhibition centre"];
+const PEG=3.6725;
+const BUDGETS={AED:["Prefer to discuss","Under AED 5,000","AED 5,000 – 20,000","AED 20,000 – 75,000","AED 75,000 – 200,000","AED 200,000+"],
+ USD:["Prefer to discuss","Under USD 1,400","USD 1,400 – 5,500","USD 5,500 – 20,000","USD 20,000 – 55,000","USD 55,000+"]};
+let CUR="AED";try{const c=localStorage.getItem("te-cur");if(c==="USD"||c==="AED")CUR=c}catch(e){}
+const budgetLabel=i=>BUDGETS[CUR][i];
+const LANGS=[["English","English","ltr"],["Arabic","العربية","rtl"],["Hindi","हिन्दी","ltr"],["Urdu","اردو","rtl"],["French","Français","ltr"]];
+let LANG="English";try{const l=localStorage.getItem("te-lang");if(LANGS.some(x=>x[0]===l))LANG=l}catch(e){}
+const total=CATS.reduce((a,c)=>a+c[2].length,0);
+const pkgTotal=Object.values(PKGS).reduce((a,g)=>a+g.list.length,0);
+
+const S={type:"Wedding",pt:"wedding",pkg:null,svc:new Set(),cat:"All",q:"",step:1,sent:false,venue2:null,setup:null,
+ form:{flex:false,date:"2026-12-12",guests:"30 – 100",emirate:"Dubai",venue:"Not decided",setupStyle:"Not sure",breakout:"None",rooms:"Not needed",budget:0,idea:"",name:"",phone:"",email:"",company:""}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const opt=(arr,v)=>arr.map(x=>`<option${x===v?" selected":""}>${esc(x)}</option>`).join("");
+const waUrl=t=>"https://wa.me/"+WA+(t?"?text="+encodeURIComponent(t):"");
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2200)}
+const occType=n=>(OCC.find(o=>o[0]===n)||OCC[OCC.length-1])[3];
+const pkgName=()=>S.pkg!==null?PKGS[S.pt].list[S.pkg].n:null;
+
+/* ---------- navigation ---------- */
+const VIEWS=["home","gallery","services","packages","venues","book","dashboard"];
+function go(v){
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===v));
+  document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+v);
+  if(v==="book"){if(!S.sent&&!S.step)S.step=1;renderFlow()}
+  if(v==="venues")drawTour();
+  if(v==="dashboard")renderDash();
+  if(v==="home")requestAnimationFrame(paintAll);
+  try{history.replaceState(null,"","#"+v)}catch(e){}
+  try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){window.scrollTo(0,0)}
+}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-tab],[data-go]");if(t){e.preventDefault();go(t.dataset.tab||t.dataset.go)}});
+function setType(n,{silent}={}){S.type=n;const k=occType(n);if(k!==S.pt){S.pt=k;S.pkg=null}$("#tType").value=n;syncTicket();renderPkgs();update()}
+function update(){$("#planCount").textContent=(S.pkg!==null?1:0)+S.svc.size;renderReceipt();refreshWa()}
+function refreshWa(){const u=waUrl(S.svc.size||S.pkg!==null?planMessage():"Hi NILNA Events, I'd like to speak to a planner."+(LANG!=="English"?" Preferred language: "+LANG+".":""));["#dockWa","#chatWa","#humanLink"].forEach(s=>{const a=$(s);if(a)a.href=u})}
+
+/* ---------- home ---------- */
+function syncTicket(){
+  $("#tkTitle").textContent="Your "+S.type;
+  const d=($("#tDate").value||"").replace(/-/g,"");
+  $("#tkNo").textContent="No. "+(d?d.slice(4):"0001");$("#tkNo2").textContent="TE-"+(d?d.slice(2,4):"26");
+}
+function renderHome(){
+  $("#nSvc").textContent=total;$("#nPkg").textContent=pkgTotal;
+  $("#tType").innerHTML=opt(OCC.map(o=>o[0]),S.type);
+  $("#tGuests").innerHTML=opt(GUESTS,S.form.guests);$("#tEm").innerHTML=opt(EMIRATES,S.form.emirate);$("#tVenue").innerHTML=opt(VENUE_OPTS,S.form.venue);
+  ["#tType","#tDate","#tGuests","#tEm","#tVenue"].forEach(s=>$(s).addEventListener("change",()=>{S.form.date=$("#tDate").value;S.form.guests=$("#tGuests").value;S.form.emirate=$("#tEm").value;S.form.venue=$("#tVenue").value;if(s==="#tType")setType($("#tType").value);syncTicket();update()}));
+  $("#ticket").onsubmit=e=>{e.preventDefault();setType($("#tType").value);go("packages")};
+  syncTicket();
+  $("#occ").innerHTML=OCC.filter(o=>o[0]!=="Other"&&o[0]!=="Graduation").map(o=>`<button data-o="${esc(o[0])}"><span class="ic">${svg(o[2])}</span><span><b>${esc(o[0])}</b><small>${esc(o[1])}</small></span></button>`).join("");
+  $("#occ").querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{setType(b.dataset.o);go("packages")});
+  $("#bento").innerHTML=CATS.map((c,i)=>`<button class="cat${i===0?" big":""}" data-c="${esc(c[0])}"><span class="n">${c[2].length}</span><h3>${esc(c[0])}</h3><p>${esc(c[1])}</p></button>`).join("");
+  $("#bento").querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{S.cat=b.dataset.c;S.q="";$("#sq").value="";renderSvcs();go("services")});
+  const picks=[["wedding",1],["proposal",1],["birthday",0]];
+  $("#spot").innerHTML=picks.map(([g,i])=>pkCard(g,i,true)).join("");
+  bindPk($("#spot"));
+  $("#offerBtn").onclick=()=>{setType("Wedding");go("packages")};
+  document.querySelectorAll("[data-season]").forEach(b=>b.onclick=()=>{setType(b.dataset.season==="flagday"?"UAE Flag Day":"UAE National Day");go("packages")});
+  const prompts=["Plan a surprise proposal on a yacht","Office birthday for 20 people tomorrow","Welcome baby setup at the hospital","National Day décor for our office","Restaurant grand opening ideas"];
+  $("#ninaPrompts").innerHTML=prompts.map(p=>`<button class="prompt">${esc(p)}</button>`).join("");
+  $("#ninaPrompts").querySelectorAll(".prompt").forEach(b=>b.onclick=()=>{openChat();send(b.textContent)});
+  $("#heroNina").onclick=()=>openChat();
+}
+
+/* ---------- packages ---------- */
+function pkCard(g,i,showGroup){
+  const p=PKGS[g].list[i],sel=S.pt===g&&S.pkg===i;
+  return `<article class="pk${p.feat?" feat":""}">${p.feat?'<span class="badge">Most booked</span>':""}
+   <div class="top-part">${showGroup?`<div class="grp">${esc(PKGS[g].label)}</div>`:""}<h3>${esc(p.n)}</h3><div class="for">${esc(p.for)}</div></div>
+   <div class="perf" aria-hidden="true"></div>
+   <ul>${p.f.map(f=>`<li>${esc(f)}</li>`).join("")}</ul>
+   <div class="foot"><span class="quote">Quoted per event · AED or USD</span><button class="btn ${sel?"btn-primary":"btn-line"} btn-sm" data-g="${g}" data-i="${i}">${sel?"✓ In my plan":"Add to plan"}</button></div></article>`;
+}
+function bindPk(root){root.querySelectorAll("[data-g]").forEach(b=>b.onclick=()=>choosePkg(b.dataset.g,+b.dataset.i))}
+function choosePkg(g,i){
+  if(S.pt===g&&S.pkg===i){S.pkg=null;toast("Package removed")}
+  else{S.pt=g;S.pkg=i;const o=OCC.find(o=>o[3]===g);if(o&&occType(S.type)!==g){S.type=o[0];$("#tType").value=S.type;syncTicket()}toast(PKGS[g].list[i].n+" added to your plan")}
+  renderPkgs();$("#spot").innerHTML=[["wedding",1],["proposal",1],["birthday",0]].map(([gg,ii])=>pkCard(gg,ii,true)).join("");bindPk($("#spot"));update();
+}
+function renderPkgs(){
+  $("#pkgChips").innerHTML=ORDER.map(k=>`<button class="chip" aria-pressed="${k===S.pt}" data-k="${k}">${esc(PKGS[k].label)}</button>`).join("");
+  $("#pkgChips").querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{S.pt=b.dataset.k;S.pkg=null;renderPkgs();update()});
+  $("#pkgs").innerHTML=PKGS[S.pt].list.map((_,i)=>pkCard(S.pt,i,false)).join("");
+  bindPk($("#pkgs"));
+}
+
+/* ---------- services ---------- */
+function renderSvcs(){
+  const names=["All",...CATS.map(c=>c[0])];
+  $("#catChips").innerHTML=names.map(n=>`<button class="chip" aria-pressed="${n===S.cat}">${esc(n)}</button>`).join("");
+  $("#catChips").querySelectorAll(".chip").forEach((b,i)=>b.onclick=()=>{S.cat=names[i];renderSvcs()});
+  const q=S.q.toLowerCase();let html="";
+  CATS.forEach(([c,,list])=>{
+    if(S.cat!=="All"&&S.cat!==c)return;
+    const rows=list.filter(([n,d])=>!q||(n+" "+d+" "+c).toLowerCase().includes(q));
+    if(!rows.length)return;
+    html+=`<div class="group"><div class="group-head"><h3>${esc(c)}</h3><span>${rows.length}</span></div><div class="svc-cols">`+rows.map(([n,d])=>{const on=S.svc.has(n);
+      return `<div class="svc-row"><div><b>${esc(n)}</b>${d?`<small>${esc(d)}</small>`:""}</div><button class="add" aria-pressed="${on}" data-s="${esc(n)}">${on?"✓":"+"}</button></div>`}).join("")+`</div></div>`;
+  });
+  $("#svcList").innerHTML=html||`<p class="empty">Nothing matches “${esc(S.q)}”. Try a broader word, or <button class="btn btn-sm" id="emptyNina">ask Nina</button></p>`;
+  $("#svcList").querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>toggleSvc(b.dataset.s));
+  const en=$("#emptyNina");if(en)en.onclick=()=>{openChat();send("Do you offer "+S.q+"?")};
+}
+function toggleSvc(n,force){const has=S.svc.has(n);if(force===true&&has)return;if(has){S.svc.delete(n);toast("Removed "+n)}else{S.svc.add(n);toast("Added "+n)}renderSvcs();update();if(!$("#p-book").hidden)renderFlow()}
+const ALLSVC=CATS.flatMap(c=>c[2].map(s=>s[0]));
+
+/* ---------- venues + tour ---------- */
+const TOUR={venues:["Ballroom","Beach","Villa garden","Office"],steps:["Empty space","Layout & seating","Décor & florals","Stage & lighting","Guests arrive"],v:0,s:4,timer:null};
+function px(n){return Math.round(n*10)/10}
+function drawTour(){
+  const v=TOUR.venues[TOUR.v],s=TOUR.s,O="#ed4308",K="#111111",C="#f7f4ee",W="#ffffff";
+  const L=(i,inner)=>`<g class="L${s>=i?"":" off"}">${inner}</g>`;
+  let base="",seat="",decor="",light="",guests="";
+  const person=(x,y,c)=>`<circle cx="${x}" cy="${y-14}" r="5" fill="${c}"/><rect x="${x-5}" y="${y-8}" width="10" height="14" rx="5" fill="${c}"/>`;
+  if(v==="Ballroom"){
+    base=`<rect width="800" height="440" fill="#efe9df"/><polygon points="0,170 800,170 800,440 0,440" fill="#e3dccf"/><rect x="0" y="0" width="800" height="170" fill="#f4efe6"/>
+     ${[120,400,680].map(x=>`<line x1="${x}" y1="0" x2="${x}" y2="40" stroke="${K}" stroke-width="2"/><ellipse cx="${x}" cy="52" rx="34" ry="12" fill="none" stroke="${K}" stroke-width="2"/>`).join("")}
+     <line x1="0" y1="170" x2="800" y2="170" stroke="${K}" stroke-width="1.5"/>`;
+    const tables=[];for(let r=0;r<3;r++)for(let i=0;i<5;i++){const x=110+i*145+(r%2?40:0),y=250+r*62,sc=.75+r*.15;tables.push([x,y,sc])}
+    seat=tables.map(([x,y,sc])=>{let c=`<ellipse cx="${x}" cy="${y}" rx="${px(34*sc)}" ry="${px(12*sc)}" fill="${W}" stroke="${K}" stroke-width="1.5"/>`;for(let k=0;k<8;k++){const a=k/8*6.283;c+=`<circle cx="${px(x+Math.cos(a)*44*sc)}" cy="${px(y+Math.sin(a)*17*sc)}" r="${px(4.5*sc)}" fill="${K}"/>`}return c}).join("");
+    decor=tables.map(([x,y,sc])=>`<circle cx="${x}" cy="${px(y-8*sc)}" r="${px(7*sc)}" fill="${O}"/><circle cx="${px(x-6*sc)}" cy="${px(y-4*sc)}" r="${px(5*sc)}" fill="#f6b393"/><circle cx="${px(x+6*sc)}" cy="${px(y-4*sc)}" r="${px(5*sc)}" fill="#f6b393"/>`).join("")
+     +`<path d="M300 170 Q400 70 500 170" fill="none" stroke="${O}" stroke-width="16" stroke-linecap="round" stroke-dasharray="2 18"/>`;
+    light=`<rect x="260" y="140" width="280" height="34" fill="${K}"/><rect x="300" y="78" width="200" height="62" rx="4" fill="${K}"/><rect x="306" y="84" width="188" height="50" fill="${O}" opacity=".85"/><text x="400" y="115" fill="${W}" font-family="Montserrat,sans-serif" font-weight="800" font-size="16" text-anchor="middle">YOUR EVENT</text>
+     ${[120,400,680].map(x=>`<ellipse cx="${x}" cy="52" rx="40" ry="16" fill="#ffd9a8" opacity=".85"/>`).join("")}
+     <polygon points="150,0 90,440 230,440" fill="${O}" opacity=".10"/><polygon points="650,0 570,440 710,440" fill="${O}" opacity=".10"/>`;
+    guests=[[80,370],[150,395],[240,380],[330,400],[470,390],[560,405],[640,380],[720,398],[200,320],[600,322]].map(([x,y],i)=>person(x,y,i%3?K:O)).join("");
+  }
+  if(v==="Beach"){
+    base=`<rect width="800" height="440" fill="#fbe7d6"/><circle cx="640" cy="120" r="46" fill="#f8b48a"/><rect y="170" width="800" height="70" fill="#9fc7c9"/><path d="M0 238 Q200 225 400 238 T800 238 V440 H0Z" fill="#f1e2c6"/>`;
+    seat=[0,1,2,3].map(r=>[0,1,2,3].map(i=>{const y=300+r*32,sc=.8+r*.1;return [[230-i*44*sc,y],[570+i*44*sc,y]].map(([x,yy])=>`<rect x="${px(x-10*sc)}" y="${px(yy-12*sc)}" width="${px(20*sc)}" height="${px(22*sc)}" rx="3" fill="${W}" stroke="${K}" stroke-width="1.4"/>`).join("")}).join("")).join("");
+    decor=`<path d="M330 260 Q400 140 470 260" fill="none" stroke="${O}" stroke-width="18" stroke-linecap="round" stroke-dasharray="1 16"/><path d="M330 260 Q400 140 470 260" fill="none" stroke="#f6b393" stroke-width="8" stroke-linecap="round" stroke-dasharray="1 22"/>`+Array.from({length:14},(_,i)=>`<circle cx="${px(390+Math.sin(i*1.7)*16)}" cy="${270+i*12}" r="3" fill="${O}" opacity=".8"/>`).join("");
+    light=`<path d="M0 60 Q200 110 400 70 T800 60" fill="none" stroke="${K}" stroke-width="1.2"/>`+Array.from({length:20},(_,i)=>{const x=i*42+10,y=60+Math.sin(i/19*Math.PI*2)*18+20*Math.sin(i/19*Math.PI);return `<circle cx="${x}" cy="${px(y+6)}" r="5" fill="#ffd9a8"/>`}).join("")+[150,650].map(x=>`<rect x="${x-8}" y="250" width="16" height="26" rx="3" fill="${K}"/><circle cx="${x}" cy="262" r="5" fill="#ffd9a8"/>`).join("");
+    guests=[[160,300],[200,330],[600,300],[640,335],[120,365],[680,365],[400,262]].map(([x,y],i)=>person(x,y,i===6?O:K)).join("");
+  }
+  if(v==="Villa garden"){
+    base=`<rect width="800" height="440" fill="#eef1e6"/><rect x="120" y="40" width="560" height="190" fill="${W}" stroke="${K}" stroke-width="1.5"/><polygon points="100,40 400,0 700,40" fill="${K}"/>${[180,300,460,580].map(x=>`<rect x="${x}" y="90" width="60" height="80" fill="#dfe6e8" stroke="${K}" stroke-width="1.2"/>`).join("")}<rect y="230" width="800" height="210" fill="#cfe0b8"/>`;
+    seat=`<rect x="300" y="300" width="200" height="40" rx="6" fill="${W}" stroke="${K}" stroke-width="1.5"/>`+[[110,330],[160,360],[640,330],[690,360]].map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="24" ry="9" fill="${W}" stroke="${K}" stroke-width="1.3"/><circle cx="${x-30}" cy="${y}" r="5" fill="${K}"/><circle cx="${x+30}" cy="${y}" r="5" fill="${K}"/>`).join("");
+    decor=Array.from({length:22},(_,i)=>{const a=Math.PI+i/21*Math.PI;return `<circle cx="${px(400+Math.cos(a)*120)}" cy="${px(300+Math.sin(a)*100)}" r="${12+(i%3)*3}" fill="${["#ed4308","#f6b393","#ffffff","#111111"][i%4]}" stroke="${K}" stroke-width="${i%4===2?1.2:0}"/>`}).join("")+`<rect x="350" y="270" width="100" height="30" rx="4" fill="${W}" stroke="${K}" stroke-width="1.2"/><text x="400" y="290" font-family="Montserrat,sans-serif" font-weight="800" font-size="12" text-anchor="middle" fill="${O}">HAPPY DAY</text><rect x="380" y="282" width="40" height="18" fill="none"/><rect x="384" y="306" width="32" height="24" rx="3" fill="#f6b393"/><rect x="390" y="296" width="20" height="12" rx="2" fill="${O}"/>`;
+    light=`<path d="M120 40 Q260 120 400 60 Q540 120 680 40" fill="none" stroke="${K}" stroke-width="1.1"/>`+Array.from({length:18},(_,i)=>{const t=i/17,x=120+t*560,y=40+Math.abs(Math.sin(t*Math.PI*2))*55+8;return `<circle cx="${px(x)}" cy="${px(y)}" r="4.5" fill="#ffd9a8"/>`}).join("");
+    guests=[[90,400],[150,410],[250,395],[540,400],[640,412],[710,396],[460,380]].map(([x,y],i)=>person(x,y,i%3?K:O)).join("");
+  }
+  if(v==="Office"){
+    base=`<rect width="800" height="440" fill="#f2f2ef"/><rect width="800" height="190" fill="#fafaf8"/>${[60,250,440,630].map(x=>`<rect x="${x}" y="30" width="130" height="110" fill="#dfe6e8" stroke="${K}" stroke-width="1.2"/>`).join("")}<line x1="0" y1="190" x2="800" y2="190" stroke="${K}" stroke-width="1.5"/>`;
+    seat=[[150,280],[400,280],[650,280],[270,370],[530,370]].map(([x,y])=>`<rect x="${x-60}" y="${y-14}" width="120" height="28" rx="4" fill="${W}" stroke="${K}" stroke-width="1.4"/>${[-40,0,40].map(d=>`<circle cx="${x+d}" cy="${y-24}" r="5.5" fill="${K}"/><circle cx="${x+d}" cy="${y+24}" r="5.5" fill="${K}"/>`).join("")}`).join("");
+    const flag=(x,y)=>`<rect x="${x}" y="${y}" width="8" height="18" fill="#ef3340"/><rect x="${x+8}" y="${y}" width="20" height="6" fill="#009739"/><rect x="${x+8}" y="${y+6}" width="20" height="6" fill="${W}"/><rect x="${x+8}" y="${y+12}" width="20" height="6" fill="${K}"/>`;
+    decor=`<path d="M0 150 Q200 175 400 150 T800 150" fill="none" stroke="${K}" stroke-width="1"/>`+Array.from({length:16},(_,i)=>flag(i*50+8,156+Math.round(Math.sin(i/15*Math.PI*2)*8))).join("")
+     +Array.from({length:16},(_,i)=>{const a=Math.PI+i/15*Math.PI;return `<circle cx="${px(400+Math.cos(a)*70)}" cy="${px(200+Math.sin(a)*40)}" r="9" fill="${["#ef3340","#009739","#ffffff","#111111"][i%4]}" stroke="${K}" stroke-width="${i%4===2?1:0}"/>`}).join("");
+    light=`<rect x="330" y="196" width="140" height="40" rx="6" fill="${K}"/><text x="400" y="221" fill="${W}" font-family="Montserrat,sans-serif" font-weight="800" font-size="13" text-anchor="middle">CELEBRATE</text><polygon points="400,0 320,440 480,440" fill="${O}" opacity=".08"/>`;
+    guests=[[100,330],[180,340],[330,320],[470,322],[620,335],[700,330],[400,410]].map(([x,y],i)=>person(x,y,i%3?K:O)).join("");
+  }
+  $("#tourSvg").innerHTML=base+L(1,seat)+L(2,decor)+L(3,light)+L(4,guests);
+  $("#tourCap").textContent=v+" · "+TOUR.steps[s];
+  $("#tourRange").value=s;
+  $("#tourSteps").innerHTML=TOUR.steps.map((t,i)=>`<li><button class="${i<=s?"on":""}${i===s?" cur":""}" data-ts="${i}"><i>${i+1}</i>${esc(t)}</button></li>`).join("");
+  $("#tourSteps").querySelectorAll("[data-ts]").forEach(b=>b.onclick=()=>{stopTour();TOUR.s=+b.dataset.ts;drawTour()});
+  $("#tourVenues").innerHTML=TOUR.venues.map((n,i)=>`<button class="chip" aria-pressed="${i===TOUR.v}" data-tv="${i}">${esc(n)}</button>`).join("");
+  $("#tourVenues").querySelectorAll("[data-tv]").forEach(b=>b.onclick=()=>{TOUR.v=+b.dataset.tv;drawTour()});
+}
+function stopTour(){clearInterval(TOUR.timer);TOUR.timer=null;$("#tourPlay").textContent="Play the setup"}
+function renderVenues(){
+  $("#vtypes").innerHTML=VENUES.map((v,i)=>`<button class="vt" aria-pressed="${S.venue2===i}" data-v="${i}"><span class="cap">${esc(v[1])}</span><b>${esc(v[0])}</b><small>${esc(v[2])}</small></button>`).join("");
+  $("#vtypes").querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{const i=+b.dataset.v;S.venue2=S.venue2===i?null:i;renderVenues();update();toast(S.venue2===null?"Venue type cleared":VENUES[i][0]+" added to your plan")});
+  $("#setups").innerHTML=SETUPS.map((t,i)=>`<button class="st" aria-pressed="${S.setup===i}" data-st="${i}">${setupSvg(t[2])}<b>${t[0]}</b><span>up to ${t[1].toLocaleString("en-US")}</span></button>`).join("");
+  $("#setups").querySelectorAll("[data-st]").forEach(b=>b.onclick=()=>{const i=+b.dataset.st;S.setup=S.setup===i?null:i;S.form.setupStyle=S.setup===null?"Not sure":SETUPS[i][0];renderVenues();update()});
+}
+$("#tourRange").oninput=e=>{stopTour();TOUR.s=+e.target.value;drawTour()};
+$("#tourPlay").onclick=()=>{if(TOUR.timer){stopTour();return}TOUR.s=0;drawTour();$("#tourPlay").textContent="Stop";TOUR.timer=setInterval(()=>{if(TOUR.s>=4){stopTour();return}TOUR.s++;drawTour()},1100)};
+$("#visitBtn").onclick=()=>{S.form.idea=(S.form.idea?S.form.idea+"\n":"")+"Please arrange a live venue walkthrough ("+TOUR.venues[TOUR.v]+").";toast("Walkthrough request added to your plan");go("book")};
+$("#rfpBtn").onclick=()=>{if(S.pt!=="corporate")setType("Corporate Event");S.step=1;S.sent=false;go("book")};
+
+/* ---------- plan + booking ---------- */
+function planMessage(){
+  const f=S.form;
+  return ["Hi NILNA Events, I'd like to plan an event.","Occasion: "+S.type,"Date: "+(f.date||"TBC")+(f.flex?" (flexible)":""),"Guests: "+f.guests,"Emirate: "+f.emirate,
+   "Venue: "+f.venue+(S.venue2!==null?" (preferred: "+VENUES[S.venue2][0]+")":""),
+   ...(S.pt==="corporate"?["Seating style: "+f.setupStyle,"Breakout rooms: "+f.breakout,"Hotel rooms: "+f.rooms]:(f.setupStyle!=="Not sure"?["Seating style: "+f.setupStyle]:[])),
+   "Package: "+(pkgName()?PKGS[S.pt].label+" · "+pkgName():"Not sure yet"),"Services: "+(S.svc.size?[...S.svc].join(", "):"Please advise"),
+   "Budget: "+budgetLabel(f.budget),"Preferred language: "+LANG,"Quote currency: "+CUR,"Idea: "+(f.idea||"-"),...(f.name?["Name: "+f.name+(f.company?" ("+f.company+")":""),"Mobile: "+f.phone]:[]),...(f.email?["Email: "+f.email]:[])].join("\n");
+}
+function renderReceipt(){
+  const f=S.form,p=pkgName();
+  $("#receipt").innerHTML=`<div class="kicker a">Event plan</div><h3 style="margin-top:6px">Your ${esc(S.type)}</h3><dl>
+   <dt>Date</dt><dd>${esc(f.date||"TBC")}</dd><dt>Guests</dt><dd>${esc(f.guests)}</dd><dt>Emirate</dt><dd>${esc(f.emirate)}</dd><dt>Venue</dt><dd>${esc(S.venue2!==null?VENUES[S.venue2][0]:f.venue)}</dd>
+   <dt>Language</dt><dd>${esc(LANG)}</dd><dt>Budget</dt><dd>${esc(budgetLabel(f.budget))}</dd><dt>Package</dt><dd>${p?esc(p):'<button class="btn btn-sm" data-go="packages">Choose</button>'}</dd>
+   <dt>Services</dt><dd>${S.svc.size?S.svc.size+" added":'<button class="btn btn-sm" data-go="services">Add</button>'}</dd></dl>
+   ${S.svc.size?`<div class="items">${[...S.svc].map(n=>`<span>${esc(n)}<button aria-label="Remove ${esc(n)}" data-rm="${esc(n)}">×</button></span>`).join("")}</div>`:""}
+   <p class="note" style="margin:16px 0 0">Your planner replies with a concept and an itemised quote.</p>`;
+  $("#receipt").querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>toggleSvc(b.dataset.rm));
+}
+function renderFlow(){
+  const f=S.form,el=$("#flow");
+  const STEPS=["Occasion","Date & guests","Package","Your details"];
+  if(S.step<1||S.step>4)S.step=1;
+  const head=`<div class="bk-steps">${STEPS.map((t,i)=>`<button class="bk-step${i+1===S.step?" cur":""}${i+1<S.step?" done":""}" data-jump="${i+1}" ${i+1>S.step?"disabled":""}><i>${i+1<S.step?"✓":i+1}</i><span>${t}</span></button>`).join("")}</div>`;
+  const nav=(back,next,label)=>`<div class="bk-nav">${back?`<button class="btn btn-sm" id="bkBack">← Back</button>`:"<span></span>"}${next?`<button class="btn btn-accent" id="bkNext">${label||"Continue"} →</button>`:""}</div>`;
+  const chips=(id,list,cur)=>`<div class="qchips" id="${id}">${list.map(v=>`<button type="button" class="qchip" aria-pressed="${v===cur}" data-v="${esc(v)}">${esc(v)}</button>`).join("")}</div>`;
+  const pick=(id,fn)=>{const g=$("#"+id);if(g)g.querySelectorAll(".qchip").forEach(b=>b.onclick=()=>{g.querySelectorAll(".qchip").forEach(x=>x.setAttribute("aria-pressed",x===b));fn(b.dataset.v)})};
+  const bindHead=()=>{el.querySelectorAll("[data-jump]").forEach(b=>b.onclick=()=>{const n=+b.dataset.jump;if(n<S.step){S.step=n;renderFlow()}});const bk=$("#bkBack");if(bk)bk.onclick=()=>{S.step--;renderFlow()}};
+
+  if(S.sent){
+    el.innerHTML=`<div class="done"><div class="bk-tick" aria-hidden="true">✓</div><div class="kicker a">Almost done</div><h2>Thank you, ${esc(f.name.split(" ")[0])}!</h2>
+     <p class="muted" style="max-width:46ch;margin:10px auto 0">Tap the green button to send your request. A planner replies on WhatsApp${LANG!=="English"?" in "+esc(LANG):""}, usually within the hour.</p>
+     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px"><a class="btn btn-wa" href="${waUrl(planMessage())}" target="_blank" rel="noopener">Send on WhatsApp</a><button class="btn" id="cp">Copy details</button></div>
+     ${S.savedToDash?`<div class="saved">✓ Recorded in the staff dashboard</div>`:""}
+     <p class="note" style="margin-top:14px">WhatsApp didn't open? Send the copied details to ${WA_SHOW}.</p>
+     <details class="bk-more"><summary>See what we'll send</summary><pre class="msg" id="msg">${esc(planMessage())}</pre></details>
+     <button class="link" id="edit" style="margin-top:18px">Change something</button></div>`;
+    $("#cp").onclick=()=>{const t=planMessage();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast("Details copied")).catch(()=>{const d=el.querySelector("details");d.open=true;const r=document.createRange();r.selectNodeContents($("#msg"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Details selected. Press copy.")})};
+    $("#edit").onclick=()=>{S.sent=false;S.step=4;renderFlow()};return;
+  }
+
+  if(S.quick){
+    el.innerHTML=`<div class="kicker a">Quick call-back</div><h3>Leave your number, <em>we'll do the rest</em></h3><p class="muted" style="margin-top:-8px">A planner calls or WhatsApps you to understand the occasion. No forms.</p>
+     <form id="qf" novalidate><div class="fgrid" style="margin-top:20px"><label class="field">Your name<input id="qName" value="${esc(f.name)}" autocomplete="name"></label>
+     <label class="field">WhatsApp number<input id="qPhone" value="${esc(f.phone)}" placeholder="050 123 4567" inputmode="tel" autocomplete="tel"></label>
+     <label class="field full">Occasion<select id="qOcc">${opt(OCC.map(o=>o[0]),S.type)}</select></label></div>
+     <div class="err" id="qErr"></div><div class="bk-nav"><button type="button" class="btn btn-sm" id="qBack">← Full booking</button><button class="btn btn-accent" type="submit">Request a call-back →</button></div></form>`;
+    $("#qBack").onclick=()=>{S.quick=false;renderFlow()};
+    $("#qf").onsubmit=e=>{e.preventDefault();f.name=$("#qName").value.trim();f.phone=$("#qPhone").value.trim();
+      if(f.name.length<2){$("#qErr").textContent="Please add your name so we know who to ask for.";return}
+      if(!/^\+?[\d\s-]{8,16}$/.test(f.phone)){$("#qErr").textContent="Please add a WhatsApp number, for example 050 123 4567.";return}
+      if($("#qOcc").value!==S.type)setType($("#qOcc").value);f.idea=(f.idea?f.idea+"\n":"")+"Please call me back to plan the details.";S.quick=false;S.sent=true;S.savedToDash=false;renderFlow();update();
+      saveBooking().then(ok=>{if(ok){S.savedToDash=true;renderFlow();toast("Booking saved to the dashboard")}})};
+    return;
+  }
+
+  if(S.step===1){
+    el.innerHTML=head+`<h3>What are we <em>celebrating?</em></h3>
+     <div class="tiles">${OCC.map(o=>`<button type="button" class="tile" aria-pressed="${o[0]===S.type}" data-o="${esc(o[0])}"><span class="ic">${svg(o[2])}</span><b>${esc(o[0])}</b><small>${esc(o[1])}</small></button>`).join("")}</div>
+     <div class="bk-alt">In a hurry? <button class="link" id="goQuick">Just call me back</button></div>`+nav(false,true);
+    el.querySelectorAll(".tile").forEach(b=>b.onclick=()=>{setType(b.dataset.o);S.step=2;renderFlow()});
+    $("#goQuick").onclick=()=>{S.quick=true;renderFlow()};
+    $("#bkNext").onclick=()=>{S.step=2;renderFlow()};bindHead();
+  }
+
+  if(S.step===2){
+    const today=new Date(),iso=d=>d.toISOString().slice(0,10);
+    const sat=new Date(today);sat.setDate(today.getDate()+((6-today.getDay()+7)%7||7));
+    const nm=new Date(today.getFullYear(),today.getMonth()+1,15);
+    const quickDates=[["This weekend",iso(sat)],["In 2 weeks",iso(new Date(+today+14*864e5))],["Next month",iso(nm)]];
+    const VEN=["Home or villa","Office","Hotel ballroom","Restaurant","Outdoor or beach","Hospital room","Mall or store","Not decided"];
+    el.innerHTML=head+`<h3>When, where &amp; <em>how many?</em></h3>
+     <div class="bk-q"><label class="bk-l" for="iDate">Date</label><div class="qchips">${quickDates.map(([l,d])=>`<button type="button" class="qchip" data-date="${d}" aria-pressed="${f.date===d}">${l}</button>`).join("")}<input class="qdate" id="iDate" type="date" value="${esc(f.date)}" aria-label="Pick a date"></div>
+      <label class="bk-check"><input type="checkbox" id="iFlex" ${f.flex?"checked":""}> My date is flexible</label></div>
+     <div class="bk-q"><span class="bk-l">Guests</span>${chips("cGuests",GUESTS,f.guests)}</div>
+     <div class="bk-q"><span class="bk-l">Emirate</span>${chips("cEm",["Dubai","Abu Dhabi","Sharjah","Ajman","Ras Al Khaimah","Fujairah","Umm Al Quwain"],f.emirate)}</div>
+     <div class="bk-q"><span class="bk-l">Venue</span>${chips("cVen",VEN,VEN.includes(f.venue)?f.venue:"Not decided")}</div>
+     ${S.pt==="corporate"?`<div class="bk-q"><span class="bk-l">Seating</span>${chips("cSeat",["Not sure","Theatre","Classroom","U-shape","Banquet","Cabaret","Cocktail"],f.setupStyle)}</div>`:""}`+nav(true,true);
+    el.querySelectorAll("[data-date]").forEach(b=>b.onclick=()=>{f.date=b.dataset.date;$("#iDate").value=f.date;el.querySelectorAll("[data-date]").forEach(x=>x.setAttribute("aria-pressed",x===b))});
+    $("#iDate").onchange=e=>{f.date=e.target.value;el.querySelectorAll("[data-date]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.date===f.date))};
+    $("#iFlex").onchange=e=>{f.flex=e.target.checked};
+    pick("cGuests",v=>f.guests=v);pick("cEm",v=>f.emirate=v);pick("cVen",v=>f.venue=v);pick("cSeat",v=>f.setupStyle=v);
+    $("#bkNext").onclick=()=>{$("#tDate").value=f.date;$("#tGuests").value=f.guests;$("#tEm").value=f.emirate;if(VENUE_OPTS.includes(f.venue))$("#tVenue").value=f.venue;syncTicket();S.step=3;renderFlow();update()};bindHead();
+  }
+
+  if(S.step===3){
+    const pl=PKGS[S.pt].list;
+    el.innerHTML=head+`<h3>Choose a <em>package</em></h3><p class="muted" style="margin-top:-8px">Every package is tailored after we talk. Not sure? Let us advise.</p>
+     <div class="bk-pk">${pl.map((p,i)=>`<button type="button" class="bk-pkc" aria-pressed="${S.pkg===i}" data-ip="${i}">${p.feat?'<span class="tagx">Most booked</span>':""}<b>${esc(p.n)}</b><small>${esc(p.for)}</small><span class="inc">${esc(p.f.slice(0,3).join(" · "))}</span></button>`).join("")}
+      <button type="button" class="bk-pkc advise" aria-pressed="${S.pkg===null}" data-ip="-1"><b>Advise me</b><small>A planner suggests the best fit</small><span class="inc">Free consultation</span></button></div>
+     <div class="bk-q"><span class="bk-l">Budget <span class="muted">(optional, ${CUR})</span></span><div class="qchips" id="cBud">${BUDGETS[CUR].map((b,i)=>`<button type="button" class="qchip" data-b="${i}" aria-pressed="${i===f.budget}">${esc(i===0?"Prefer not to say":b)}</button>`).join("")}</div></div>
+     <details class="bk-more"${f.idea?" open":""}><summary>Add a note or extra services (optional)</summary>
+      <label class="field" style="margin-top:12px">Your idea<textarea id="iIdea" placeholder="Colours, theme, surprise details, must-haves…">${esc(f.idea)}</textarea></label>
+      <p class="note">${S.svc.size?S.svc.size+" extra services added. ":""}<button class="link" data-go="services">Browse ${total} services</button> · <button class="link" id="ninaIdeas">Get ideas from Nina</button></p></details>`+nav(true,true);
+    const keep=()=>{const t=$("#iIdea");if(t)f.idea=t.value};
+    el.querySelectorAll("[data-ip]").forEach(b=>b.onclick=()=>{keep();const v=+b.dataset.ip;S.pkg=v<0?null:v;el.querySelectorAll("[data-ip]").forEach(x=>x.setAttribute("aria-pressed",x===b));renderPkgs();update()});
+    el.querySelectorAll("[data-b]").forEach(b=>b.onclick=()=>{f.budget=+b.dataset.b;el.querySelectorAll("[data-b]").forEach(x=>x.setAttribute("aria-pressed",x===b));update()});
+    $("#ninaIdeas").onclick=()=>{keep();openChat();send("Suggest ideas and services for my "+S.type+" ("+f.guests+" guests, "+f.emirate+")"+(f.idea?". My idea: "+f.idea:""))};
+    el.querySelector("[data-go=services]").addEventListener("click",keep);
+    $("#bkNext").onclick=()=>{keep();S.step=4;renderFlow();update()};bindHead();
+    const bk=$("#bkBack");if(bk)bk.onclick=()=>{keep();S.step=2;renderFlow()};
+  }
+
+  if(S.step===4){
+    el.innerHTML=head+`<h3>Where should we <em>reply?</em></h3><p class="muted" style="margin-top:-8px">We'll send your quote on WhatsApp. No spam, ever.</p>
+     <form id="cf" novalidate><div class="fgrid" style="margin-top:20px">
+      <label class="field">Your name<input id="iName" value="${esc(f.name)}" autocomplete="name" placeholder="e.g. Aisha"></label>
+      <label class="field">WhatsApp number<input id="iPhone" value="${esc(f.phone)}" placeholder="050 123 4567" inputmode="tel" autocomplete="tel"></label></div>
+      <details class="bk-more"${f.email||f.company?" open":""}><summary>Add email or company (optional)</summary><div class="fgrid" style="margin-top:12px">
+       <label class="field">Email<input id="iEmail" type="email" value="${esc(f.email)}" autocomplete="email"></label>
+       <label class="field">Company<input id="iCo" value="${esc(f.company)}" autocomplete="organization"></label></div></details>
+      <div class="err" id="err"></div>
+      <div class="bk-nav"><button type="button" class="btn btn-sm" id="bkBack">← Back</button><button class="btn btn-accent" type="submit">Get my free quote →</button></div></form>`;
+    bindHead();
+    $("#cf").onsubmit=e=>{e.preventDefault();f.name=$("#iName").value.trim();f.phone=$("#iPhone").value.trim();f.email=$("#iEmail").value.trim();f.company=$("#iCo").value.trim();
+      if(f.name.length<2){$("#err").textContent="Please add your name so we know who to ask for.";$("#iName").focus();return}
+      if(!/^\+?[\d\s-]{8,16}$/.test(f.phone)){$("#err").textContent="Please add a WhatsApp number, for example 050 123 4567.";$("#iPhone").focus();return}
+      S.sent=true;S.savedToDash=false;renderFlow();update();saveBooking().then(ok=>{if(ok){S.savedToDash=true;renderFlow();toast("Booking saved to the dashboard")}})};
+  }
+}
+
+/* ---------- Nina ---------- */
+const NINA={turns:[],busy:false,ctl:null,sample:null,ai:"pending"};
+function catalogText(){
+  const pk=ORDER.map(k=>PKGS[k].label+" ["+k+"]: "+PKGS[k].list.map(p=>p.n+" ("+p.for+": "+p.f.slice(0,4).join(", ")+")").join(" | ")).join("\n");
+  const sv=CATS.map(c=>c[0]+": "+c[2].map(s=>s[0]).join("; ")).join("\n");
+  return pk+"\n\nSERVICES\n"+sv;
+}
+const RULES=()=>`You are Nina, the AI event planner on the NILNA Events website (NILNA Events is an event planning and decoration company in Dubai, UAE). Speak warmly and briefly, like a skilled Dubai event planner. Reply in the visitor's language (English or Arabic usually).
+Rules:
+- Keep replies under 90 words. Use short lines, no markdown headings, no tables. Max one question per reply.
+- Only recommend packages and services from the catalogue below. Never invent prices, discounts, venues or availability. Prices are quoted per event by a human planner.
+- Use the tools to act on the page: show_packages to open the right package group, add_services to put services in the visitor's plan (only exact names from the catalogue), open_plan when they are ready to book, talk_to_human when they ask for a person, pricing, confirmation, a complaint, or anything you cannot answer.
+- Human planners are on WhatsApp ${WA_SHOW}, email info@nilnaevents.com. Coverage: all seven emirates. Planners speak Arabic, English, Hindi, Urdu and French, and you can reply in any of these.
+- Current visitor plan: occasion ${S.type}; date ${S.form.date}; guests ${S.form.guests}; emirate ${S.form.emirate}; package ${pkgName()||"none"}; services ${[...S.svc].join(", ")||"none"}.
+- The visitor chose ${LANG} as their preferred language: reply in ${LANG} unless they write in another language.
+- The visitor prefers prices in ${CUR}${CUR==="USD"?" (AED is pegged at 3.6725 per USD)":""}. If they mention a budget, talk in ${CUR}; still never quote package prices.
+- UAE dates: Flag Day is 3 November (flag raising at 11am); National Day (Eid Al Etihad) is 2 December.
+CATALOGUE
+${catalogText()}`;
+const ninaTools=()=>[
+ {name:"show_packages",description:"Open the packages page on a package group so the visitor sees it. Returns the packages in that group.",inputSchema:{type:"object",properties:{group:{type:"string",enum:ORDER}},required:["group"]},
+  execute:({group})=>{const g=String(group);if(!PKGS[g])throw new Error("Unknown group");S.pt=g;S.pkg=null;const o=OCC.find(o=>o[3]===g);if(o){S.type=o[0];$("#tType").value=S.type;syncTicket()}renderPkgs();update();go("packages");return PKGS[g].list.map(p=>p.n)}},
+ {name:"add_services",description:"Add services to the visitor's event plan. Use exact service names from the catalogue. Returns which names were added.",inputSchema:{type:"object",properties:{services:{type:"array",items:{type:"string"}}},required:["services"]},
+  execute:({services})=>{const added=[];(Array.isArray(services)?services:[]).forEach(n=>{const m=ALLSVC.find(x=>x.toLowerCase()===String(n).toLowerCase());if(m&&!S.svc.has(m)){S.svc.add(m);added.push(m)}});renderSvcs();update();if(added.length)toast(added.length+" service"+(added.length>1?"s":"")+" added to your plan");return {added}}},
+ {name:"open_plan",description:"Open the visitor's event plan and booking form so they can send it to a planner.",execute:()=>{go("book");return "opened"}},
+ {name:"talk_to_human",description:"Show the visitor a button to continue on WhatsApp with a human planner, carrying their plan.",execute:()=>{NINA.pendingHuman=true;return "WhatsApp button shown"}}
+];
+function bubble(text,who,extra){const d=document.createElement("div");d.className="msg-b "+who+(extra?" "+extra:"");d.textContent=text;$("#log").append(d);$("#log").scrollTop=$("#log").scrollHeight;return d}
+function actions(list){const d=document.createElement("div");d.className="acts";list.forEach(a=>{let b;if(a.href){b=document.createElement("a");b.href=a.href;b.target="_blank";b.rel="noopener";b.className=a.cls||""}else{b=document.createElement("button");b.onclick=a.fn}b.textContent=a.label;d.append(b)});$("#log").append(d);$("#log").scrollTop=$("#log").scrollHeight}
+function humanAct(){return {label:"WhatsApp a planner",href:waUrl(planMessage()),cls:"wa"}}
+let chatOpened=false;
+function openChat(){
+  $("#chat").hidden=false;$("#dock").hidden=true;
+  if(!chatOpened){chatOpened=true;bubble(({Arabic:"مرحباً بك في نيلنا للفعاليات، كيف يمكنني مساعدتك اليوم؟",French:"Bienvenue chez NILNA Events, comment puis-je vous aider aujourd'hui ?",Hindi:"NILNA Events में आपका स्वागत है, आज मैं आपकी कैसे मदद कर सकती हूँ?",Urdu:"NILNA Events میں خوش آمدید، آج میں آپ کی کیا مدد کر سکتی ہوں؟"})[LANG]||"Welcome to NILNA Events, how can I help you today?","nina");
+    actions([{label:"Surprise proposal",fn:()=>send("I want to plan a surprise proposal")},{label:"Birthday setup",fn:()=>send("Birthday setup at home or office")},{label:"Welcome baby",fn:()=>send("Welcome baby setup")},{label:"Corporate event",fn:()=>send("We need a corporate event")},humanAct()]);}
+  setTimeout(()=>$("#chatIn").focus(),50);
+}
+function closeChat(){$("#chat").hidden=true;$("#dock").hidden=false;NINA.ctl?.abort()}
+$("#dockNina").onclick=openChat;$("#chatX").onclick=closeChat;$("#askNinaSvc").onclick=()=>openChat();
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#chat").hidden)closeChat()});
+$("#chatIn").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#chatForm").requestSubmit()}});
+$("#chatIn").addEventListener("input",e=>{e.target.style.height="auto";e.target.style.height=Math.min(110,e.target.scrollHeight)+"px"});
+$("#chatForm").onsubmit=e=>{e.preventDefault();const t=$("#chatIn").value.trim();if(!t||NINA.busy)return;$("#chatIn").value="";$("#chatIn").style.height="auto";send(t)};
+
+/* offline brain: used when live AI is unavailable */
+const KEYS=[["proposal",/propos|marry|ring|engag/],["birthday",/birthday|bday|turning \d|party for (my|our) (son|daughter|kid)/],["baby",/baby|shower|gender|newborn|hospital|mubarak/],["wedding",/wedding|nikah|henna|mehndi|bride|groom/],["opening",/opening|restaurant|caf[eé]|launch (of )?(my|our) (shop|store)|ribbon/],["retail",/mall|supermarket|hypermarket|in-?store|promotion|sampling/],["nationalday",/national day|eid al etihad|2 dec/],["flagday",/flag day|flag raising|3 nov/],["corporate",/corporate|conference|seminar|gala|award|team ?building|exhibition|summit|company event/],["social",/graduat|anniversar|housewarming|surprise party|hen party/]];
+function offlineReply(t){
+  const s=t.toLowerCase();
+  if(/human|person|agent|call|speak|talk to|manager|complain/.test(s)){bubble("Of course. A NILNA planner will continue with you on WhatsApp, and I'll send your plan along with you.","nina");actions([humanAct()]);return}
+  if(/price|cost|how much|budget|aed|cheap|rate/.test(s)){bubble("Every event is quoted individually, based on date, venue, guests and services, so you only pay for what you need. Add a package to your plan and a planner will send an itemised quote, usually within 24 hours.","nina");actions([{label:"Open my plan",fn:()=>go("book")},humanAct()]);return}
+  const hit=KEYS.find(([,re])=>re.test(s));
+  if(hit){const g=hit[0],grp=PKGS[g];S.pt=g;S.pkg=null;const o=OCC.find(o=>o[3]===g);if(o){S.type=o[0];$("#tType").value=S.type;syncTicket()}renderPkgs();update();
+    bubble(`Lovely! For ${grp.label.toLowerCase()} we have:\n`+grp.list.map(p=>"• "+p.n+" — "+p.for).join("\n")+"\n\nWhich one feels closest? I can add it to your plan.","nina");
+    actions([...grp.list.map((p,i)=>({label:"Add "+p.n,fn:()=>{choosePkg(g,i);bubble(p.n+" is in your plan. Want me to open the booking form?","nina");actions([{label:"Open my plan",fn:()=>go("book")},humanAct()])}})),{label:"See all",fn:()=>go("packages")}]);return}
+  const found=ALLSVC.filter(n=>s.split(/\W+/).filter(w=>w.length>3).some(w=>n.toLowerCase().includes(w))).slice(0,6);
+  if(found.length){bubble("Yes, we can do that. These services match:","nina");actions(found.map(n=>({label:(S.svc.has(n)?"✓ ":"+ ")+n,fn:()=>toggleSvc(n,true)})).concat([humanAct()]));return}
+  bubble("I'd love to help with that. Tell me the occasion, rough date and number of guests, or a planner can answer directly on WhatsApp.","nina");actions([{label:"Browse services",fn:()=>go("services")},humanAct()]);
+}
+async function getSample(){if(NINA.ai!=="pending")return NINA.sample;try{NINA.sample=window.claude?await window.claude.use("sample"):null}catch(e){NINA.sample=null}NINA.ai=NINA.sample?"live":"offline";$("#ninaMode").textContent=NINA.ai==="live"?"AI event planner · online":"Event assistant · online";return NINA.sample}
+async function send(text){
+  if(NINA.busy)return;bubble(text,"me");NINA.busy=true;$("#chatSend").disabled=true;
+  const sample=await getSample();
+  if(!sample){setTimeout(()=>{offlineReply(text);NINA.busy=false;$("#chatSend").disabled=false},350);return}
+  NINA.turns.push({role:"user",content:text});
+  const out=bubble("Thinking…","nina","typing");NINA.pendingHuman=false;NINA.ctl=new AbortController();
+  try{
+    let lim=null;try{lim=await sample.limits()}catch(e){}
+    const opts={signal:NINA.ctl.signal,modelTier:"quick",onText:({text})=>{out.classList.remove("typing");out.textContent=text;$("#log").scrollTop=$("#log").scrollHeight}};
+    if(lim&&lim.tools)opts.tools=ninaTools();else opts.cache=false;
+    const turns=NINA.turns.slice(-12);
+    const {text:ans}=await sample([{role:"user",content:RULES()},...turns],opts);
+    out.classList.remove("typing");out.textContent=ans;NINA.turns.push({role:"assistant",content:ans});
+    if(NINA.pendingHuman)actions([humanAct()]);
+  }catch(e){
+    NINA.turns.pop();
+    if(e&&["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed","tools_unavailable"].includes(e.code)){NINA.sample=null;NINA.ai="offline";$("#ninaMode").textContent="Event assistant · online";out.remove();offlineReply(text)}
+    else if(e&&e.code==="cancelled"){out.textContent=e.text||"Stopped."}
+    else{out.classList.remove("typing");out.textContent=(e&&e.text)?e.text:"Sorry, I couldn't answer just now. A planner can help right away on WhatsApp.";actions([humanAct(),{label:"Try again",fn:()=>send(text)}])}
+  }finally{NINA.busy=false;$("#chatSend").disabled=false}
+}
+
+/* ---------- languages ---------- */
+function renderLangs(){$("#langs").innerHTML=LANGS.map(([k,n,d])=>`<button data-lang="${k}" aria-pressed="${k===LANG}" lang="${{English:"en",Arabic:"ar",Hindi:"hi",Urdu:"ur",French:"fr"}[k]}" dir="${d}">${n}</button>`).join("");
+  $("#langs").querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{LANG=b.dataset.lang;try{localStorage.setItem("te-lang",LANG)}catch(e){}renderLangs();update();
+    toast(LANG==="English"?"Your planner will speak English":"Your planner and Nina will speak "+LANG)})}
+renderLangs();
+
+/* ---------- currency ---------- */
+function setCur(c){CUR=c;try{localStorage.setItem("te-cur",c)}catch(e){}
+  document.querySelectorAll("[data-cur]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.cur===c));
+  update();if(!$("#p-book").hidden)renderFlow();toast("Prices and quotes in "+c)}
+document.querySelectorAll("[data-cur]").forEach(b=>b.onclick=()=>setCur(b.dataset.cur));
+document.querySelectorAll("[data-cur]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.cur===CUR));
+
+/* ---------- art panels (generated; swap for real photography) ---------- */
+const ART={
+ hero:{bg:["#2b1d16","#140e0b"],glow:"#ff9a5c",dots:["#ffcf9e","#ff8a4c","#fff1dc"],n:90,petals:false},
+ henna:{bg:["#3a2416","#1c120c"],glow:"#e7a65a",dots:["#f4c27a","#ffdca8","#c98b44"],n:60,petals:true},
+ wedding:{bg:["#f3e6dc","#d9c2b0"],glow:"#ffffff",dots:["#ffffff","#f6d3c2","#ead7c3"],n:70,petals:true,light:true},
+ proposal:{bg:["#4a1f22","#1d0c0f"],glow:"#ff6f61",dots:["#ff9b8a","#ffd1b8","#ed4308"],n:70,petals:true},
+ celebration:{bg:["#f6efe6","#e8dccb"],glow:"#ffffff",dots:["#ed4308","#f4a07a","#141210","#d4b483"],n:46,balloons:true,light:true},
+ corporate:{bg:["#14161b","#07080b"],glow:"#ed4308",dots:["#ffffff","#ff9a5c","#9fb4c9"],n:80,beams:true}
+};
+function paintArt(cv,key){
+  const box=cv.parentElement.getBoundingClientRect();if(!box.width||!box.height)return;
+  const dpr=Math.min(2,window.devicePixelRatio||1),W=box.width,H=box.height;
+  cv.width=W*dpr;cv.height=H*dpr;const x=cv.getContext("2d");if(!x)return;x.setTransform(dpr,0,0,dpr,0,0);
+  const a=ART[key]||ART.hero;let seed=key.length*97+7;const r=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const g=x.createLinearGradient(0,0,W*.3,H);g.addColorStop(0,a.bg[0]);g.addColorStop(1,a.bg[1]);x.fillStyle=g;x.fillRect(0,0,W,H);
+  const rg=x.createRadialGradient(W*.68,H*.32,0,W*.68,H*.32,Math.max(W,H)*.7);rg.addColorStop(0,a.glow+(a.light?"cc":"55"));rg.addColorStop(1,"transparent");x.fillStyle=rg;x.fillRect(0,0,W,H);
+  if(a.beams){for(let i=0;i<5;i++){const cx=W*(.12+i*.19);x.fillStyle=`rgba(255,${120+i*20},80,.07)`;x.beginPath();x.moveTo(cx,0);x.lineTo(cx-W*.16,H);x.lineTo(cx+W*.16,H);x.fill()}
+    x.fillStyle="rgba(255,255,255,.06)";for(let i=0;i<14;i++){x.fillRect(W*.1+i*W*.06,H*.72,W*.035,H*.28)}}
+  for(let i=0;i<a.n;i++){const px=r()*W,py=r()*H*(a.balloons?.8:1),rad=(a.balloons?14:3)+r()*(a.balloons?26:Math.min(W,H)*.06);const col=a.dots[i%a.dots.length];
+    x.globalAlpha=a.balloons?.9:(.12+r()*.45);
+    if(a.balloons){const gr=x.createRadialGradient(px-rad*.35,py-rad*.4,rad*.1,px,py,rad);gr.addColorStop(0,"rgba(255,255,255,.75)");gr.addColorStop(.3,col);gr.addColorStop(1,col);x.fillStyle=gr;x.beginPath();x.ellipse(px,py,rad*.86,rad,0,0,7);x.fill();x.globalAlpha=.35;x.strokeStyle="#141210";x.lineWidth=.8;x.beginPath();x.moveTo(px,py+rad);x.quadraticCurveTo(px+8,py+rad+40,px-4,py+rad+90);x.stroke()}
+    else{const gr=x.createRadialGradient(px,py,0,px,py,rad);gr.addColorStop(0,col);gr.addColorStop(.6,col+"88");gr.addColorStop(1,"transparent");x.fillStyle=gr;x.beginPath();x.arc(px,py,rad,0,7);x.fill()}}
+  if(a.petals){x.globalAlpha=.8;for(let i=0;i<26;i++){const px=r()*W,py=H*.55+r()*H*.45,s=6+r()*10,rot=r()*6;x.save();x.translate(px,py);x.rotate(rot);x.fillStyle=a.dots[i%a.dots.length];x.beginPath();x.ellipse(0,0,s,s*.55,0,0,7);x.fill();x.restore()}}
+  x.globalAlpha=1;
+}
+function paintAll(){document.querySelectorAll(".art").forEach(el=>{const k=el.dataset.art;const cv=el.querySelector("canvas");if(cv&&k&&el.offsetParent!==null)paintArt(cv,k)})}
+let artT;window.addEventListener("resize",()=>{clearTimeout(artT);artT=setTimeout(paintAll,180)});
+
+const GALLERY=[["01-Db2uQqwDHdH.jpg", "Db2uQqwDHdH", "Welcome baby", "Personalised favour table", 1, 4], ["Db2uQqwDHdH-1.jpg", "Db2uQqwDHdH", "Welcome baby", "Personalised favour table", 2, 4], ["Db2uQqwDHdH-2.jpg", "Db2uQqwDHdH", "Welcome baby", "Personalised favour table", 3, 4], ["Db2uQqwDHdH-3.jpg", "Db2uQqwDHdH", "Welcome baby", "Personalised favour table", 4, 4], ["02-Dbyps8CjKBC.jpg", "Dbyps8CjKBC", "Welcome baby", "Cosy crib nest styling", 1, 3], ["Dbyps8CjKBC-1.jpg", "Dbyps8CjKBC", "Welcome baby", "Cosy crib nest styling", 2, 3], ["Dbyps8CjKBC-2.jpg", "Dbyps8CjKBC", "Welcome baby", "Cosy crib nest styling", 3, 3], ["03-DbyeJfIDN1_.jpg", "DbyeJfIDN1_", "Welcome baby", "Welcome-to-the-world board", 1, 3], ["DbyeJfIDN1_-1.jpg", "DbyeJfIDN1_", "Welcome baby", "Welcome-to-the-world board", 2, 3], ["DbyeJfIDN1_-2.jpg", "DbyeJfIDN1_", "Welcome baby", "Welcome-to-the-world board", 3, 3], ["04-DeyhqKwEYXc.jpg", "DeyhqKwEYXc", "Hospital setup", "Hospital room welcome setup", 1, 6], ["DeyhqKwEYXc-1.jpg", "DeyhqKwEYXc", "Hospital setup", "Hospital room welcome setup", 2, 6], ["DeyhqKwEYXc-2.jpg", "DeyhqKwEYXc", "Hospital setup", "Hospital room welcome setup", 3, 6], ["DeyhqKwEYXc-3.jpg", "DeyhqKwEYXc", "Hospital setup", "Hospital room welcome setup", 4, 6], ["DeyhqKwEYXc-4.jpg", "DeyhqKwEYXc", "Hospital setup", "Hospital room welcome setup", 5, 6], ["DeyhqKwEYXc-5.jpg", "DeyhqKwEYXc", "Hospital setup", "Hospital room welcome setup", 6, 6], ["05-Deyf3wSkU__.jpg", "Deyf3wSkU__", "Welcome baby", "Crib canopy &amp; name blanket", 1, 3], ["Deyf3wSkU__-1.jpg", "Deyf3wSkU__", "Welcome baby", "Crib canopy &amp; name blanket", 2, 3], ["Deyf3wSkU__-2.jpg", "Deyf3wSkU__", "Welcome baby", "Crib canopy &amp; name blanket", 3, 3], ["06-DeyfKsJkdS4.jpg", "DeyfKsJkdS4", "Hospital setup", "Hospital suite styling", 1, 6], ["DeyfKsJkdS4-1.jpg", "DeyfKsJkdS4", "Hospital setup", "Hospital suite styling", 2, 6], ["DeyfKsJkdS4-2.jpg", "DeyfKsJkdS4", "Hospital setup", "Hospital suite styling", 3, 6], ["DeyfKsJkdS4-3.jpg", "DeyfKsJkdS4", "Hospital setup", "Hospital suite styling", 4, 6], ["DeyfKsJkdS4-4.jpg", "DeyfKsJkdS4", "Hospital setup", "Hospital suite styling", 5, 6], ["DeyfKsJkdS4-5.jpg", "DeyfKsJkdS4", "Hospital setup", "Hospital suite styling", 6, 6], ["07-Dej9ZmFjPrF.jpg", "Dej9ZmFjPrF", "Favours", "Little lion favour boxes", 1, 4], ["Dej9ZmFjPrF-1.jpg", "Dej9ZmFjPrF", "Favours", "Little lion favour boxes", 2, 4], ["Dej9ZmFjPrF-2.jpg", "Dej9ZmFjPrF", "Favours", "Little lion favour boxes", 3, 4], ["Dej9ZmFjPrF-3.jpg", "Dej9ZmFjPrF", "Favours", "Little lion favour boxes", 4, 4], ["08-Dej9Ey9jM9m.jpg", "Dej9Ey9jM9m", "Favours", "Thank-you cards", 1, 3], ["Dej9Ey9jM9m-1.jpg", "Dej9Ey9jM9m", "Favours", "Thank-you cards", 2, 3], ["Dej9Ey9jM9m-2.jpg", "Dej9Ey9jM9m", "Favours", "Thank-you cards", 3, 3], ["09-Dej8lISjDSx.jpg", "Dej8lISjDSx", "Favours", "Honey jar giveaways", 1, 2], ["Dej8lISjDSx-1.jpg", "Dej8lISjDSx", "Favours", "Honey jar giveaways", 2, 2], ["10-DeL-iODs66B.jpg", "DeL-iODs66B", "Candles &amp; gifts", "Handmade sculpted candle", 1, 1], ["11-DeL-WVfMYmq.jpg", "DeL-WVfMYmq", "Candles &amp; gifts", "Candle gift", 1, 1], ["12-DeL96ogxyDL.jpg", "DeL96ogxyDL", "Candles &amp; gifts", "Candle gift", 1, 1]];
+
+const GCATS=["All","Welcome baby","Hospital setup","Favours","Candles &amp; gifts"];
+let GSTATE={cat:"All",idx:-1};
+function galList(){return GALLERY.filter(g=>GSTATE.cat==="All"||g[2]===GSTATE.cat)}
+function renderGallery(){
+  const el=$("#galGrid");if(!el)return;
+  $("#galChips").innerHTML=GCATS.map(c=>`<button class="chip" aria-pressed="${c===GSTATE.cat}" data-gc="${c}">${c} <span class="muted">(${c==="All"?GALLERY.length:GALLERY.filter(g=>g[2]===c).length})</span></button>`).join("");
+  $("#galChips").querySelectorAll("[data-gc]").forEach(b=>b.onclick=()=>{GSTATE.cat=b.dataset.gc;renderGallery()});
+  const list=galList();
+  el.innerHTML=list.map((g,i)=>`<button class="gtile" data-gi="${i}" aria-label="Open photo: ${g[3].replace(/&amp;/g,"and")} (${g[4]} of ${g[5]})"><img src="${(window.IGDATA&&IGDATA[g[0]])||("ig/"+g[0])}" alt="NILNA Events: ${g[3].replace(/&amp;/g,"and")}" loading="lazy"><span class="gcap">${g[3]}${g[5]>1?` · ${g[4]}/${g[5]}`:""}</span></button>`).join("");
+  el.querySelectorAll("[data-gi]").forEach(b=>b.onclick=()=>openLight(+b.dataset.gi));
+  const c=$("#galCount");if(c)c.textContent=GALLERY.length;
+}
+function openLight(i){GSTATE.idx=i;const lb=$("#light");lb.hidden=false;drawLight();lb.querySelector(".lb-x").focus()}
+function closeLight(){$("#light").hidden=true;GSTATE.idx=-1}
+function drawLight(){const list=galList();const n=list.length;GSTATE.idx=(GSTATE.idx+n)%n;const g=list[GSTATE.idx];
+  $("#lbImg").src=(window.IGDATA&&IGDATA[g[0]])||("ig/"+g[0]);$("#lbImg").alt="NILNA Events: "+g[3].replace(/&amp;/g,"and");
+  $("#lbCap").innerHTML=`<b>${g[3]}</b><span>${g[2]} · photo ${g[4]} of ${g[5]} in this post</span>`;
+  $("#lbLink").href=`https://www.instagram.com/nilnaevents/p/${g[1]}/`;$("#lbNum").textContent=`${GSTATE.idx+1} / ${n}`}
+document.addEventListener("keydown",e=>{if($("#light")&&!$("#light").hidden){if(e.key==="Escape")closeLight();if(e.key==="ArrowRight"){GSTATE.idx++;drawLight()}if(e.key==="ArrowLeft"){GSTATE.idx--;drawLight()}}});
+const IG_POSTS=[
+ ["01-Db2uQqwDHdH.jpg","Db2uQqwDHdH","Personalised favour table","Welcome baby"],
+ ["02-Dbyps8CjKBC.jpg","Dbyps8CjKBC","Cosy crib nest styling","Welcome baby"],
+ ["03-DbyeJfIDN1_.jpg","DbyeJfIDN1_","Welcome-to-the-world board","Welcome baby"],
+ ["04-DeyhqKwEYXc.jpg","DeyhqKwEYXc","Hospital room welcome setup","Hospital setup"],
+ ["05-Deyf3wSkU__.jpg","Deyf3wSkU__","Embroidered name blanket","Gifts"],
+ ["06-DeyfKsJkdS4.jpg","DeyfKsJkdS4","Favours &amp; floral chest","Welcome baby"],
+ ["07-Dej9ZmFjPrF.jpg","Dej9ZmFjPrF","Little lion favour boxes","Favours"],
+ ["08-Dej9Ey9jM9m.jpg","Dej9Ey9jM9m","Thank-you cards","Favours"],
+ ["09-Dej8lISjDSx.jpg","Dej8lISjDSx","Honey jar giveaways","Favours"],
+ ["10-DeL-iODs66B.jpg","DeL-iODs66B","Handmade sculpted candle","Gifts"],
+ ["11-DeL-WVfMYmq.jpg","DeL-WVfMYmq","Candle gift, small","Gifts"],
+ ["12-DeL96ogxyDL.jpg","DeL96ogxyDL","Candle gift, classic","Gifts"]
+];
+function renderGram(){const el=document.getElementById("gram");if(!el)return;
+  el.innerHTML=IG_POSTS.map(([f,id,cap,tag])=>`<a href="https://www.instagram.com/nilnaevents/p/${id}/" target="_blank" rel="noopener" aria-label="${cap.replace(/&amp;/g,"and")} on Instagram"><div class="ph"><img src="ig/${f}" alt="NILNA Events: ${cap.replace(/&amp;/g,"and")}" loading="lazy" width="480" height="640"></div><div class="cap">${cap}</div><span class="tag">${tag}</span></a>`).join("")}
+const CHAPTERS=[
+ {cap:"Henna night · Abu Dhabi",art:"wedding",k:"Weddings & henna",t:"Weddings with <em>soul</em>",p:"Nikah, henna nights, receptions and destination weddings. Kosha design, florals, catering and a day-of team so your family can simply be present.",g:"wedding",o:"Wedding"},
+ {cap:"She said yes! · Palm Jumeirah",art:"proposal",k:"Surprise proposals",t:"The question, <em>perfectly</em> asked",p:"Rose-petal terraces, sunset beaches, private yachts and desert camps, with hidden photographers and timing managed to the second.",g:"proposal",o:"Surprise Proposal"},
+ {cap:"Welcome baby Matteo · favour table",img:"ig/06-DeyfKsJkdS4.jpg",art:"celebration",k:"Celebrations",t:"Birthdays, babies &amp; <em>milestones</em>",p:"Home and office birthdays, hospital and home welcome-baby setups, baby showers and gender reveals, styled before your guests arrive.",g:"birthday",o:"Birthday"},
+ {cap:"Store opening · Sharjah",art:"corporate",k:"Corporate, openings &amp; national days",t:"Occasions that <em>represent you</em>",p:"Launches, galas, conferences, restaurant and supermarket openings, mall activations, Flag Day ceremonies and National Day festivals.",g:"corporate",o:"Corporate Event"}
+];
+function renderChapters(){
+  $("#chapters").innerHTML=CHAPTERS.map((c,i)=>`<article class="chapter"><figure class="polaroid" style="margin:0">${c.img?`<div class="art photo"><img src="${c.img}" alt="${c.cap}" loading="lazy"></div>`:`<div class="art" data-art="${c.art}"><canvas></canvas></div>`}<figcaption>${c.cap}</figcaption></figure><div><div class="kicker a">${c.k}</div><h3>${c.t}</h3><p>${c.p}</p>
+   <ul>${PKGS[c.g].list.map(p=>`<li>${esc(p.n)}<span>${esc(p.for)}</span></li>`).join("")}</ul><button class="btn" data-ch="${i}">Discover ${esc(PKGS[c.g].label.split(" &")[0].toLowerCase())}</button></div></article>`).join("");
+  $("#chapters").querySelectorAll("[data-ch]").forEach(b=>b.onclick=()=>{const c=CHAPTERS[+b.dataset.ch];setType(c.o);go("packages")});
+}
+
+/* ---------- bookings store + dashboard ---------- */
+const STATUSES=["New","Contacted","Quoted","Confirmed","Completed","Cancelled"];
+const SOURCES=["Website","WhatsApp","Phone","Walk-in","Instagram","Email","Referral"];
+const DB={db:null,user:null,staff:false,rows:[],ready:false,unsub:null,sub:"bookings",q:"",status:"All",open:null,confirmDel:false};
+const COL="data/crm/bookings";
+async function initStore(){
+  try{
+    const c=window.claude;if(!c)return;
+    const [db,user]=await Promise.all([c.use("db"),c.use("user")]);
+    DB.db=db;DB.user=user;
+    let staff=false;try{staff=!!(user&&((await user.isOwner())||(await user.canEdit())))}catch(e){}
+    DB.staff=staff&&!!db;$("#dashTab").hidden=!DB.staff;
+    if(DB.staff&&!DB.unsub){
+      DB.unsub=db.collection(COL).orderBy("createdAt","desc").onSnapshot(snap=>{DB.rows=snap.docs.map(d=>({id:d.id,...d.data()}));DB.ready=true;if(!$("#p-dashboard").hidden)renderDash();if(DB.open&&!DB.rows.find(r=>r.id===DB.open))closeDrawer()},
+        err=>{DB.ready=true;DB.err=err&&err.code;if(!$("#p-dashboard").hidden)renderDash()});
+    }
+    if(location.hash==="#dashboard"&&DB.staff)go("dashboard");
+  }catch(e){}
+}
+function newRef(){const d=new Date();return "TE-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+"-"+Math.random().toString(36).slice(2,6).toUpperCase()}
+function bookingFromState(source){
+  const f=S.form;return {ref:newRef(),createdAt:new Date().toISOString(),source,status:"New",name:f.name,phone:f.phone,email:f.email,company:f.company,
+   occasion:S.type,date:f.date,guests:f.guests,emirate:f.emirate,venue:S.venue2!==null?VENUES[S.venue2][0]:f.venue,setupStyle:f.setupStyle,
+   pkgGroup:PKGS[S.pt].label,pkg:pkgName()||"",services:[...S.svc],budget:budgetLabel(f.budget),currency:CUR,language:LANG,idea:f.idea,notes:""};
+}
+async function saveBooking(){
+  if(!DB.staff||!DB.db)return false;
+  try{await DB.db.collection(COL).add(bookingFromState("Website"));return true}catch(e){return false}
+}
+function parseWhatsApp(t){
+  const get=k=>{const m=t.match(new RegExp("^\\s*"+k+":\\s*(.+)$","mi"));return m?m[1].trim():""};
+  const pk=get("Package");const [grp,name]=pk.includes("·")?pk.split("·").map(s=>s.trim()):["",pk==="Not sure yet"?"":pk];
+  const nm=get("Name");const co=nm.match(/\(([^)]+)\)\s*$/);
+  return {ref:newRef(),createdAt:new Date().toISOString(),source:"WhatsApp",status:"New",name:co?nm.replace(co[0],"").trim():nm,company:co?co[1]:"",phone:get("Mobile"),email:get("Email"),
+   occasion:get("Occasion"),date:get("Date"),guests:get("Guests"),emirate:get("Emirate"),venue:get("Venue"),setupStyle:get("Seating style"),pkgGroup:grp,pkg:name,
+   services:get("Services")&&get("Services")!=="Please advise"?get("Services").split(/,\s*/):[],budget:get("Budget"),currency:get("Quote currency")||"AED",language:get("Preferred language")||"",idea:get("Idea")==="-"?"":get("Idea"),notes:""};
+}
+const fmtDate=s=>{if(!s)return "—";const d=new Date(s);return isNaN(d)?s:d.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})};
+const fmtWhen=s=>{const d=new Date(s);return isNaN(d)?"—":d.toLocaleDateString("en-GB",{day:"2-digit",month:"short"})+" "+d.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"})};
+function filtered(){const q=DB.q.toLowerCase();return DB.rows.filter(r=>(DB.status==="All"||r.status===DB.status)&&(!q||[r.ref,r.name,r.phone,r.email,r.company,r.occasion,r.emirate,r.pkg].join(" ").toLowerCase().includes(q)))}
+function customers(){const m=new Map();DB.rows.forEach(r=>{const k=(r.phone||"").replace(/\D/g,"")||r.email||r.name||r.id;const c=m.get(k)||{name:r.name,phone:r.phone,email:r.email,company:r.company,language:r.language,count:0,confirmed:0,last:"",next:"",occasions:new Set()};
+  c.count++;if(r.status==="Confirmed"||r.status==="Completed")c.confirmed++;c.occasions.add(r.occasion);if(!c.last||r.createdAt>c.last)c.last=r.createdAt;if(r.date&&(!c.next||r.date<c.next)&&r.status!=="Cancelled")c.next=r.date;if(!c.email&&r.email)c.email=r.email;m.set(k,c)});return [...m.values()].sort((a,b)=>b.last.localeCompare(a.last))}
+function bars(map,max){const e=Object.entries(map).sort((a,b)=>b[1]-a[1]);const top=Math.max(1,...e.map(x=>x[1]));return e.length?e.slice(0,max||8).map(([k,v])=>`<div class="bar"><span title="${esc(k)}">${esc(k||"—")}</span><i style="width:${Math.max(2,v/top*100)}%"></i><em>${v}</em></div>`).join(""):`<p class="note">No data yet.</p>`}
+function renderDash(){
+  const el=$("#dashBody");
+  if(!DB.staff){el.innerHTML=`<div class="dash-empty"><h3>Staff only</h3><p>The dashboard is visible to the site owner and staff with edit access.</p></div>`;return}
+  if(!DB.ready){el.innerHTML=`<div class="dash-empty"><p>Loading bookings…</p></div>`;return}
+  const rows=DB.rows,now=new Date(),wk=new Date(now-7*864e5).toISOString(),today=now.toISOString().slice(0,10),in30=new Date(+now+30*864e5).toISOString().slice(0,10);
+  const k={total:rows.length,newW:rows.filter(r=>r.createdAt>=wk).length,open:rows.filter(r=>["New","Contacted","Quoted"].includes(r.status)).length,conf:rows.filter(r=>r.status==="Confirmed").length,up:rows.filter(r=>r.status!=="Cancelled"&&r.date>=today&&r.date<=in30).length};
+  const byOcc={},bySt={},bySrc={};rows.forEach(r=>{byOcc[r.occasion]=(byOcc[r.occasion]||0)+1;bySt[r.status]=(bySt[r.status]||0)+1;bySrc[r.source]=(bySrc[r.source]||0)+1});
+  const list=filtered(),cust=customers();
+  el.innerHTML=`<div class="kpis">
+    <div class="kpi"><span>Total bookings</span><b>${k.total}</b><small>all time</small></div>
+    <div class="kpi"><span>New this week</span><b>${k.newW}</b><small>last 7 days</small></div>
+    <div class="kpi"><span>Open pipeline</span><b>${k.open}</b><small>new, contacted, quoted</small></div>
+    <div class="kpi"><span>Confirmed</span><b>${k.conf}</b><small>awaiting the event</small></div>
+    <div class="kpi"><span>Next 30 days</span><b>${k.up}</b><small>events coming up</small></div></div>
+   <div class="dash-grid"><div class="box"><h4>Bookings by occasion</h4><div class="bars">${bars(byOcc)}</div></div><div class="box"><h4>By status · by source</h4><div class="bars">${bars(bySt,6)}</div><div class="bars" style="margin-top:14px">${bars(bySrc,5)}</div></div></div>
+   <div class="subtabs"><button data-sub="bookings" aria-pressed="${DB.sub==="bookings"}">Bookings (${rows.length})</button><button data-sub="customers" aria-pressed="${DB.sub==="customers"}">Customers (${cust.length})</button></div>
+   <div class="dash-tools"><input class="search" id="dq" type="search" placeholder="Search name, phone, reference…" value="${esc(DB.q)}" aria-label="Search bookings">
+    ${DB.sub==="bookings"?`<div class="chips" style="margin-top:0">${["All",...STATUSES].map(s=>`<button class="chip" data-stf="${s}" aria-pressed="${DB.status===s}">${s}</button>`).join("")}</div>`:""}</div>
+   ${DB.err?`<p class="note" style="color:var(--bad)">Couldn't load bookings (${esc(DB.err)}). Reload the page to try again.</p>`:""}
+   ${DB.sub==="bookings"?(rows.length?`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Received</th><th>Ref</th><th>Customer</th><th>Phone</th><th>Occasion</th><th>Event date</th><th>Emirate</th><th>Guests</th><th>Package</th><th>Budget</th><th>Source</th><th>Status</th></tr></thead><tbody>
+     ${list.map(r=>`<tr data-id="${esc(r.id)}"><td class="num">${fmtWhen(r.createdAt)}</td><td class="num">${esc(r.ref||"")}</td><td><b>${esc(r.name||"—")}</b>${r.company?`<br><span class="note">${esc(r.company)}</span>`:""}</td><td class="num">${esc(r.phone||"—")}</td><td>${esc(r.occasion||"—")}</td><td class="num">${fmtDate(r.date)}</td><td>${esc(r.emirate||"—")}</td><td class="num">${esc(r.guests||"—")}</td><td>${esc(r.pkg||"—")}</td><td>${esc(r.budget||"—")}</td><td>${esc(r.source||"—")}</td><td><span class="st-pill st-${esc(r.status)}">${esc(r.status)}</span></td></tr>`).join("")||`<tr><td colspan="12" class="note">No bookings match these filters.</td></tr>`}
+     </tbody></table></div>`:emptyDash()):
+     (cust.length?`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Customer</th><th>Phone</th><th>Email</th><th>Language</th><th>Bookings</th><th>Confirmed</th><th>Occasions</th><th>Next event</th><th>Last contact</th></tr></thead><tbody>
+     ${cust.filter(c=>!DB.q||[c.name,c.phone,c.email,c.company].join(" ").toLowerCase().includes(DB.q.toLowerCase())).map(c=>`<tr data-cust="${esc(c.phone||c.email||c.name)}"><td><b>${esc(c.name||"—")}</b>${c.company?`<br><span class="note">${esc(c.company)}</span>`:""}</td><td class="num">${esc(c.phone||"—")}</td><td>${esc(c.email||"—")}</td><td>${esc(c.language||"—")}</td><td class="num">${c.count}</td><td class="num">${c.confirmed}</td><td>${esc([...c.occasions].join(", "))}</td><td class="num">${fmtDate(c.next)}</td><td class="num">${fmtWhen(c.last)}</td></tr>`).join("")}
+     </tbody></table></div>`:emptyDash())}`;
+  el.querySelectorAll("[data-sub]").forEach(b=>b.onclick=()=>{DB.sub=b.dataset.sub;renderDash()});
+  el.querySelectorAll("[data-stf]").forEach(b=>b.onclick=()=>{DB.status=b.dataset.stf;renderDash()});
+  const dq=$("#dq");if(dq){dq.oninput=e=>{DB.q=e.target.value;const pos=e.target.selectionStart;renderDash();const n=$("#dq");n.focus();try{n.setSelectionRange(pos,pos)}catch(_){}}}
+  el.querySelectorAll("tr[data-id]").forEach(tr=>tr.onclick=()=>openDrawer(tr.dataset.id));
+  el.querySelectorAll("tr[data-cust]").forEach(tr=>tr.onclick=()=>{DB.sub="bookings";DB.status="All";DB.q=tr.dataset.cust;renderDash()});
+}
+function emptyDash(){return `<div class="dash-empty"><h3>No bookings yet</h3><p>Bookings appear here when staff send a plan from the site, add one by hand, or import a WhatsApp booking message.</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px"><button class="btn btn-sm btn-dark" onclick="openForm()">Add booking</button><button class="btn btn-sm" onclick="openImport()">Import WhatsApp message</button></div></div>`}
+function drawerShell(title,body){$("#drawerRoot").innerHTML=`<div class="scrim" id="scrim"></div><aside class="drawer" role="dialog" aria-label="${esc(title)}"><div class="drawer-h"><h3>${title}</h3><button class="x" id="dx" aria-label="Close">×</button></div><div class="drawer-b">${body}</div></aside>`;$("#scrim").onclick=closeDrawer;$("#dx").onclick=closeDrawer}
+function closeDrawer(){DB.open=null;DB.confirmDel=false;$("#drawerRoot").innerHTML=""}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#drawerRoot").innerHTML)closeDrawer()});
+function openDrawer(id){
+  const r=DB.rows.find(x=>x.id===id);if(!r)return;DB.open=id;
+  const wa=r.phone?waTo(r.phone,`Hello ${r.name||""}, this is NILNA Events about your ${r.occasion||"event"} booking (${r.ref||""}).`):"";
+  drawerShell(esc(r.name||"Booking"),`<div class="kicker a">${esc(r.ref||"")} · ${esc(r.source||"")}</div>
+   <div class="fgrid" style="margin:16px 0 20px"><label class="field">Status<select id="dStatus">${opt(STATUSES,r.status)}</select></label><div style="display:flex;align-items:flex-end;gap:8px">${wa?`<a class="btn btn-wa btn-sm" href="${wa}" target="_blank" rel="noopener">WhatsApp</a>`:""}</div></div>
+   <dl class="kv">${[["Phone",r.phone],["Email",r.email],["Company",r.company],["Language",r.language],["Occasion",r.occasion],["Event date",fmtDate(r.date)],["Guests",r.guests],["Emirate",r.emirate],["Venue",r.venue],["Seating",r.setupStyle],["Package",[r.pkgGroup,r.pkg].filter(Boolean).join(" · ")],["Services",(r.services||[]).join(", ")],["Budget",r.budget],["Currency",r.currency],["Idea",r.idea],["Received",fmtWhen(r.createdAt)]].map(([a,b])=>`<dt>${a}</dt><dd>${esc(b||"—")}</dd>`).join("")}</dl>
+   <label class="field" style="margin-top:20px">Internal notes<textarea id="dNotes" placeholder="Calls, quotes sent, supplier notes…">${esc(r.notes||"")}</textarea></label>
+   <div class="actions"><span id="delWrap"><button class="btn btn-sm" id="dDel">Delete</button></span><button class="btn btn-sm btn-dark" id="dSave">Save notes</button></div><p class="note" id="dMsg"></p>`);
+  const ref=DB.db.collection(COL).doc(id);
+  $("#dStatus").onchange=async e=>{try{await ref.update({status:e.target.value,updatedAt:new Date().toISOString()});toast("Status set to "+e.target.value)}catch(err){$("#dMsg").textContent="Couldn't update the status. Check your connection and try again."}};
+  $("#dSave").onclick=async()=>{try{await ref.update({notes:$("#dNotes").value,updatedAt:new Date().toISOString()});toast("Notes saved")}catch(err){$("#dMsg").textContent="Couldn't save the notes. Try again."}};
+  $("#dDel").onclick=()=>{$("#delWrap").innerHTML=`<span class="confirm">Delete this booking for good? <button class="btn btn-sm" id="dNo">Keep</button><button class="btn btn-sm btn-accent" id="dYes">Delete</button></span>`;
+    $("#dNo").onclick=()=>openDrawer(id);$("#dYes").onclick=async()=>{try{await ref.delete();closeDrawer();toast("Booking deleted")}catch(err){$("#dMsg").textContent="Couldn't delete it. Try again."}}};
+}
+function waTo(phone,text){let d=String(phone).replace(/\D/g,"");if(d.startsWith("00"))d=d.slice(2);if(d.startsWith("0"))d="971"+d.slice(1);if(d.length===9&&d.startsWith("5"))d="971"+d;return "https://wa.me/"+d+"?text="+encodeURIComponent(text)}
+function openForm(){
+  drawerShell("Add booking",`<form id="bf" novalidate><div class="fgrid">
+   <label class="field">Customer name<input id="bName" autocomplete="off"></label><label class="field">Mobile<input id="bPhone" inputmode="tel"></label>
+   <label class="field">Email<input id="bEmail" type="email"></label><label class="field">Company<input id="bCo"></label>
+   <label class="field">Occasion<select id="bOcc">${opt(OCC.map(o=>o[0]),"Birthday")}</select></label><label class="field">Event date<input id="bDate" type="date"></label>
+   <label class="field">Guests<select id="bGuests">${opt(GUESTS,"30 – 100")}</select></label><label class="field">Emirate<select id="bEm">${opt(EMIRATES,"Dubai")}</select></label>
+   <label class="field">Venue<select id="bVenue">${opt(VENUE_OPTS,"Not decided")}</select></label><label class="field">Package<select id="bPkg"><option value="">Not sure yet</option>${ORDER.map(g=>`<optgroup label="${esc(PKGS[g].label)}">${PKGS[g].list.map(p=>`<option value="${esc(PKGS[g].label+"|"+p.n)}">${esc(p.n)}</option>`).join("")}</optgroup>`).join("")}</select></label>
+   <label class="field">Budget<select id="bBudget">${BUDGETS[CUR].map(b=>`<option>${esc(b)}</option>`).join("")}</select></label><label class="field">Language<select id="bLang">${opt(LANGS.map(l=>l[0]),"English")}</select></label>
+   <label class="field">Source<select id="bSrc">${opt(SOURCES,"Phone")}</select></label><label class="field">Status<select id="bSt">${opt(STATUSES,"New")}</select></label>
+   <label class="field full">Idea / notes<textarea id="bIdea"></textarea></label></div>
+   <div class="err" id="bErr"></div><div class="actions"><button type="button" class="btn btn-sm" id="bCancel">Cancel</button><button class="btn btn-sm btn-dark" type="submit">Save booking</button></div></form>`);
+  $("#bCancel").onclick=closeDrawer;
+  $("#bf").onsubmit=async e=>{e.preventDefault();const name=$("#bName").value.trim(),phone=$("#bPhone").value.trim();
+    if(name.length<2){$("#bErr").textContent="Enter the customer's name.";return}if(!phone&&!$("#bEmail").value.trim()){$("#bErr").textContent="Enter a mobile number or an email so the team can reach them.";return}
+    const [grp,pk]=($("#bPkg").value||"|").split("|");
+    const doc={ref:newRef(),createdAt:new Date().toISOString(),source:$("#bSrc").value,status:$("#bSt").value,name,phone,email:$("#bEmail").value.trim(),company:$("#bCo").value.trim(),occasion:$("#bOcc").value,date:$("#bDate").value,guests:$("#bGuests").value,emirate:$("#bEm").value,venue:$("#bVenue").value,setupStyle:"",pkgGroup:grp,pkg:pk,services:[],budget:$("#bBudget").value,currency:CUR,language:$("#bLang").value,idea:$("#bIdea").value.trim(),notes:""};
+    try{await DB.db.collection(COL).add(doc);closeDrawer();toast("Booking saved")}catch(err){$("#bErr").textContent="Couldn't save the booking. Check your connection and try again."}};
+}
+function openImport(){
+  drawerShell("Import WhatsApp message",`<p class="muted" style="margin-top:0">Paste the booking message a customer sent from the website. NILNA Events reads the fields and creates the booking.</p>
+   <label class="field">Message<textarea id="imTxt" style="min-height:240px" placeholder="Hi NILNA Events, I'd like to plan an event.&#10;Occasion: …"></textarea></label>
+   <div id="imPrev"></div><div class="err" id="imErr"></div><div class="actions"><button class="btn btn-sm" id="imCancel">Cancel</button><button class="btn btn-sm btn-dark" id="imGo">Create booking</button></div>`);
+  $("#imCancel").onclick=closeDrawer;
+  $("#imTxt").oninput=()=>{const b=parseWhatsApp($("#imTxt").value);$("#imPrev").innerHTML=b.occasion||b.name?`<dl class="kv" style="margin-top:14px">${[["Customer",b.name],["Mobile",b.phone],["Occasion",b.occasion],["Date",b.date],["Package",b.pkg],["Services",b.services.length+" listed"]].map(([a,v])=>`<dt>${a}</dt><dd>${esc(v||"—")}</dd>`).join("")}</dl>`:""};
+  $("#imGo").onclick=async()=>{const b=parseWhatsApp($("#imTxt").value);if(!b.occasion&&!b.name){$("#imErr").textContent="This doesn't look like a NILNA booking message. It should contain lines like “Occasion:” and “Name:”.";return}
+    try{await DB.db.collection(COL).add(b);closeDrawer();toast("Booking imported")}catch(err){$("#imErr").textContent="Couldn't save the booking. Try again."}};
+}
+async function exportCsv(){
+  const cols=["ref","createdAt","status","source","name","phone","email","company","language","occasion","date","guests","emirate","venue","setupStyle","pkgGroup","pkg","services","budget","currency","idea","notes"];
+  const q=v=>'"'+String(Array.isArray(v)?v.join("; "):(v??"")).replace(/"/g,'""')+'"';
+  const csv=[cols.join(","),...filtered().map(r=>cols.map(c=>q(r[c])).join(","))].join("\r\n");
+  const name="nilna-events-bookings-"+new Date().toISOString().slice(0,10)+".csv";
+  try{const dl=await window.claude?.use("downloads");if(dl){await dl.save({filename:name,data:new Blob(["﻿"+csv],{type:"text/csv"})});return}}catch(e){if(e&&["declined","rate_limited"].includes(e.code)){if(e.code==="rate_limited")toast("A download prompt is already open");return}}
+  try{await navigator.clipboard.writeText(csv);toast("CSV copied to clipboard")}catch(e){toast("Export isn't available in this view")}
+}
+$("#addBtn").onclick=openForm;$("#importBtn").onclick=openImport;$("#csvBtn").onclick=exportCsv;
+window.openForm=openForm;window.openImport=openImport;
+
+
+/* ---------- boot ---------- */
+$("#sq").oninput=e=>{S.q=e.target.value.trim();renderSvcs()};
+renderChapters();renderGram();renderGallery();$("#lbPrev").onclick=()=>{GSTATE.idx--;drawLight()};$("#lbNext").onclick=()=>{GSTATE.idx++;drawLight()};$(".lb-x").onclick=closeLight;$("#light").addEventListener("click",e=>{if(e.target.id==="light")closeLight()});renderHome();renderSvcs();renderPkgs();renderVenues();renderReceipt();refreshWa();
+requestAnimationFrame(paintAll);setTimeout(paintAll,600);initStore();
+const h=(location.hash||"").slice(1);if(VIEWS.includes(h)&&h!=="dashboard")go(h);
+
+
+
+</script>
+
+</body>
+</html>
