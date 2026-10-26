@@ -451,8 +451,11 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px;min-width:940px}
 .subtabs button[aria-pressed="true"]{background:var(--ink);color:#fff}
 
 footer{border-top:1.5px solid var(--ink);margin-top:100px;background:var(--card)}
-footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-block:44px;font-size:14px;color:var(--muted)}
-footer .tag{font-family:var(--hand);font-size:36px;font-weight:700;color:var(--brand);line-height:1;margin-bottom:10px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px 30px;flex-wrap:wrap;padding-block:34px;font-size:14px;color:var(--muted)}
+footer .f-links{display:flex;gap:10px 22px;flex-wrap:wrap;align-items:center;font-weight:700}
+footer .f-links a{color:var(--ink);text-decoration:none}
+footer .f-links a:hover{color:var(--brand)}
+footer .tag{font-family:var(--hand);font-size:32px;font-weight:700;color:var(--brand);line-height:1;margin-bottom:10px}
 footer b{display:block;color:var(--ink);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
 
 /* dock + chat */
@@ -492,6 +495,56 @@ footer b{display:block;color:var(--ink);font-size:12px;font-weight:800;letter-sp
 @media (max-width:1060px){.bento{grid-template-columns:repeat(3,1fr)}.cat.big{grid-column:span 3}.spot,.pk-grid{grid-template-columns:1fr 1fr}.why{grid-template-columns:1fr 1fr}.vtypes{grid-template-columns:1fr 1fr}.setups{grid-template-columns:repeat(3,1fr)}.svc-cols{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:900px){.hero .wrap,.intro,.chapter,.offer,.tour,.book,.nina-band,.dash-grid{grid-template-columns:1fr}.chapter:nth-child(even) .polaroid{order:0}.board{min-height:0;display:grid;gap:30px;padding-top:14px}.board .polaroid,.board .concierge,.board .sticky{position:relative;width:auto;inset:auto}.board .sticky{display:none}.steps{grid-template-columns:1fr 1fr}.receipt{position:relative;top:auto;transform:none}footer .wrap{grid-template-columns:1fr}.navl{order:3;width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap}.navr{margin-left:auto}}
 @media (max-width:620px){.bento{grid-template-columns:1fr 1fr}.cat.big{grid-column:span 2}.spot,.pk-grid,.why,.vtypes,.fgrid,.intro .cols,.svc-cols,.bk-pk{grid-template-columns:1fr}.figs{grid-template-columns:1fr 1fr}.setups{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.sec{padding-top:64px}.dock-btn .lbl{display:none}.dock-btn{padding:8px}.nina-face{width:96px;height:96px}.nina-face span{font-size:60px}.langbar .right{margin-left:0}.bar{grid-template-columns:110px 1fr 30px}.cg-grid{grid-template-columns:1fr}.bk-steps span{font-size:10.5px}.card{padding:20px}.offer{padding:22px}}
+
+/* compact mobile */
+@media (max-width:620px){
+ .sec{padding-top:46px}
+ .sec-head{margin-bottom:20px}
+ .sec-head h2{font-size:30px}
+ .sec-head p{font-size:14px;margin-top:6px}
+ .langbar .right>span:not(.cur){display:none}
+ .langbar .lbl{display:none}
+ .langbar .wrap{gap:8px;padding-block:6px}
+ .hero{padding-block:26px 10px}
+ .hero h1{font-size:44px;margin-block:8px 12px}
+ .hero p.lead{font-size:15px}
+ .arrow-note{display:none}
+ .intro{gap:20px}.intro .cols p:last-child{display:none}.intro .cols{grid-template-columns:1fr}
+ .figs{gap:10px;margin-top:18px}.figs div{padding:8px 10px}.figs b{font-size:24px}
+ .occ{grid-template-columns:1fr 1fr;gap:10px}
+ .occ button{padding:10px;gap:6px;box-shadow:2px 2px 0 var(--ink)}
+ .occ .ic{width:32px;height:32px}.occ .ic svg{width:16px;height:16px}
+ .occ b{font-size:13.5px}.occ small{display:none}
+ .chapters{gap:34px}
+ .chapter{gap:16px}
+ .chapter .polaroid{width:100%;max-width:230px;margin-inline:auto!important}
+ .chapter .polaroid .art{width:100%}
+ .chapter ul,.chapter p{display:none}
+ .chapter h3{font-size:28px;margin-block:6px 12px}
+ .spot,.gram{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:14px 4px 18px;margin-inline:-4px}
+ .spot>*{flex:0 0 84%;scroll-snap-align:start}
+ .gram>a{flex:0 0 46%;scroll-snap-align:start}
+ .gram .tag{display:none}
+ .offer{padding:18px;gap:16px}.offer .art{width:100%;max-width:240px;margin:0 auto}
+ .offer p{font-size:14px}
+ .bento{grid-template-columns:1fr 1fr;gap:12px}
+ .cat{min-height:0;padding:16px 12px 12px}
+ .cat p{display:none}.cat .n{font-size:30px}.cat h3{font-size:14px}
+ .cat.big{grid-column:span 2}
+ .steps{grid-template-columns:1fr 1fr;gap:10px}
+ .step{padding:12px}.step .dot{font-size:32px;margin-bottom:4px}.step h3{font-size:15px}.step p{font-size:12.5px}
+ .why{grid-template-columns:1fr 1fr;gap:12px}
+ .why div{padding:12px}.why b{font-size:21px}.why span{font-size:12.5px}
+ .nina-band{padding:20px;gap:14px}
+ .nina-face{width:64px;height:64px}.nina-face span{font-size:40px}.nina-face::after{width:14px;height:14px;right:2px;bottom:4px}
+ .nina-band p{font-size:14px}
+ .prompts .prompt:nth-child(n+4){display:none}
+ .prompt{font-size:17px;padding:6px 12px}
+ footer{margin-top:56px}
+ footer .wrap{padding-block:24px;gap:12px}
+ footer .tag{font-size:26px;margin-bottom:4px}
+ footer .f-links{gap:8px 16px;font-size:13px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
@@ -716,9 +769,8 @@ footer b{display:block;color:var(--ink);font-size:12px;font-weight:800;letter-sp
 
 <footer>
   <div class="wrap">
-    <div><div class="tag">Your event, sorted.</div>NILNA Events Management · luxury event planning &amp; decoration in Dubai, UAE.</div>
-    <div><b>Concierge</b>WhatsApp / phone: +971 58 564 9298<br>info@nilnaevents.com<br>Dubai, United Arab Emirates</div>
-    <div><b>Explore</b><a href="#packages" data-go="packages">Packages</a> · <a href="#services" data-go="services">Services</a> · <a href="#venues" data-go="venues">Visual tour</a><br><a href="https://nilnaevents.com" target="_blank" rel="noopener">nilnaevents.com</a> · <a class="ig-link" href="https://www.instagram.com/nilnaevents/" target="_blank" rel="noopener" style="color:var(--brand)"><svg class="ig-ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>@nilnaevents</a></div>
+    <div><div class="tag">Your event, sorted.</div>NILNA Events · Dubai, UAE</div>
+    <div class="f-links"><a href="https://wa.me/971585649298" target="_blank" rel="noopener">WhatsApp +971 58 564 9298</a><a href="https://www.instagram.com/nilnaevents/" target="_blank" rel="noopener" class="ig-link"><svg class="ig-ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>@nilnaevents</a><span>info@nilnaevents.com</span></div>
   </div>
 </footer>
 
