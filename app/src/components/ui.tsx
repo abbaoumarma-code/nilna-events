@@ -81,10 +81,10 @@ export function Sticky({ children, color = C.note, tilt = -1.5, style }: { child
 }
 
 const ART: Record<string, [string, string, string]> = {
-  celebration: ['#F6EFE6', '#F4A07A', '#ED4308'],
+  celebration: ['#F6EFE6', '#E3C27F', '#C9952F'],
   wedding: ['#F3E6DC', '#E9C9B8', '#B08D57'],
   proposal: ['#4A1F22', '#A8333A', '#FF9B8A'],
-  corporate: ['#14161B', '#2C3445', '#ED4308'],
+  corporate: ['#0B1A33', '#2C3445', '#C9952F'],
   henna: ['#3A2416', '#7A4A23', '#F4C27A'],
   hero: ['#2B1D16', '#7A3B1D', '#FF9A5C'],
 };

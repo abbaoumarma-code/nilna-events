@@ -18,7 +18,7 @@ export function TopBar() {
   return (
     <View style={{ backgroundColor: C.paper }}>
       <View style={[s.lang, { paddingTop: insets.top + 6 }]}>
-        <Text style={{ fontFamily: F.hand, fontSize: 18, color: '#FFB38F' }}>We speak</Text>
+        <Text style={{ fontFamily: F.hand, fontSize: 18, color: '#E6C27A' }}>We speak</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 4, paddingRight: 8 }} style={{ flex: 1 }}>
           {LANGS.map(l => (
             <Pressable key={l.key} onPress={() => setLang(l.key)} accessibilityRole="button" accessibilityState={{ selected: lang === l.key }}
