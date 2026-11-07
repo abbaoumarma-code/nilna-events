@@ -1,0 +1,9 @@
+Options -Indexes
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+  Header set X-Frame-Options "DENY"
+  Header set Referrer-Policy "same-origin"
+</IfModule>
+<FilesMatch "\.(json|bak|log)$">
+  Require all denied
+</FilesMatch>
