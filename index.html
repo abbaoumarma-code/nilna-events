@@ -19,6 +19,15 @@
 <meta property="og:description" content="Event planning &amp; decoration in Dubai. Book in 1 minute.">
 <meta property="og:url" content="https://nilnaevents.com/">
 <meta property="og:image" content="https://nilnaevents.com/brand/nilna-logo-square.png">
+<meta property="og:image:alt" content="NILNA Events Management logo">
+<meta property="og:locale" content="en_AE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NILNA Events Management | Event Planning &amp; Decoration in Dubai">
+<meta name="twitter:description" content="Event planning &amp; decoration in Dubai and across the UAE. Book in 1 minute.">
+<meta name="twitter:image" content="https://nilnaevents.com/brand/nilna-logo-square.png">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"NILNA Events Management","alternateName":"NILNA Events","url":"https://nilnaevents.com/"},{"@type":"Organization","name":"NILNA Events Management","url":"https://nilnaevents.com/","logo":"https://nilnaevents.com/icon-512.png","email":"info@nilnaevents.com","telephone":"+971585649298","sameAs":["https://www.instagram.com/nilnaevents/"],"address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"}}]}</script>
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-family:system-ui,sans-serif;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -561,6 +570,43 @@ footer b{display:block;color:var(--ink);font-size:12px;font-weight:800;letter-sp
  footer .tag{font-size:26px;margin-bottom:4px}
  footer .f-links{gap:8px 16px;font-size:13px}
 }
+/* responsive polish (Nov 2026): no sideways scroll, one-row header, swipeable tabs, readable chapters */
+html,body{overflow-x:clip}
+img,canvas,video{max-width:100%}
+.navl{scrollbar-width:none}.navl::-webkit-scrollbar{display:none}
+@media (max-width:900px){
+ .board .polaroid{max-width:440px;margin-inline:auto}
+ .board .concierge{max-width:560px;margin-inline:auto}
+ .chapter .polaroid{max-width:420px;margin-inline:auto}
+ .offer .art{max-width:420px;margin-inline:auto;width:100%}
+ .navl{scroll-snap-type:x proximity;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent);padding-right:28px}
+ .navl .tab{flex:none;scroll-snap-align:start;min-height:40px}
+}
+@media (max-width:620px){
+ .langbar .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+ .langbar .wrap::-webkit-scrollbar{display:none}
+ .langs{flex-wrap:nowrap;flex:none}
+ .langbar .right{flex:none;gap:10px}
+ .langbar .ig-link{font-size:0;display:inline-flex}
+ .top .wrap{gap:8px 10px;padding-block:8px}
+ .navr{gap:8px!important}
+ .navl{margin-inline:-18px;padding-left:12px;width:calc(100% + 36px)}
+ .navl .tab{padding:8px 11px;font-size:13.5px}
+ .chapter .polaroid{max-width:260px;padding-bottom:12px}
+ .chapter .polaroid figcaption{position:static;font-size:20px;line-height:1.1;padding-top:10px}
+ .chapter p{display:block;font-size:14px;margin:0 0 14px;color:var(--ink2)}
+ main{padding-bottom:28px}
+ footer{margin-top:36px}
+ .dock{gap:8px}
+ .dock-btn .av{width:32px;height:32px}
+}
+@media (max-width:400px){
+ .ig-btn{display:none}
+ .logo .wm{font-size:20px}
+ .logo-badge{width:42px;height:42px}
+ .plan-pill{padding:6px 7px 6px 12px;font-size:13px}
+ .hero h1{font-size:40px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
@@ -597,7 +643,7 @@ footer b{display:block;color:var(--ink);font-size:12px;font-weight:800;letter-sp
         <div class="arrow-note"><svg width="46" height="30" viewBox="0 0 46 30" fill="none" stroke="#c9952f" stroke-width="2.2" stroke-linecap="round"><path d="M2 6c10 16 24 20 38 14"/><path d="M33 13l7 7-9 3"/></svg>no forms, no stress, reply on WhatsApp</div>
       </div>
       <div class="board">
-        <figure class="polaroid" style="margin:0"><div class="art photo"><img src="ig/04-DeyhqKwEYXc.jpg" alt="NILNA welcome baby setup in a hospital room with a floral welcome board and blue and gold balloons" width="488" height="640"></div><figcaption>Welcome, baby Matteo ♡</figcaption></figure>
+        <figure class="polaroid" style="margin:0"><div class="art photo"><img src="ig/04-DeyhqKwEYXc.jpg" alt="NILNA welcome baby setup in a hospital room with a floral welcome board and blue and gold balloons" width="488" height="640" fetchpriority="high"></div><figcaption>Welcome, baby Matteo ♡</figcaption></figure>
         <form class="concierge" id="ticket" aria-label="Start your event">
           <div class="kicker">Start here</div>
           <h3>What's the occasion?</h3>
@@ -932,6 +978,7 @@ const pkgName=()=>S.pkg!==null?PKGS[S.pt].list[S.pkg].n:null;
 const VIEWS=["home","gallery","services","packages","venues","book","dashboard"];
 function go(v){
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===v));
+  try{const nl=document.querySelector(".navl"),at=nl&&nl.querySelector('.tab[aria-selected="true"]');if(at&&nl.scrollWidth>nl.clientWidth)nl.scrollTo({left:Math.max(0,at.offsetLeft-nl.offsetLeft-24),behavior:"smooth"})}catch(e){}
   document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+v);
   if(v==="book"){if(!S.sent&&!S.step)S.step=1;renderFlow()}
   if(v==="venues")drawTour();
