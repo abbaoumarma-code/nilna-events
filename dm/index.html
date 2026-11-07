@@ -136,7 +136,7 @@ label{display:block;font-size:11.5px;font-weight:700;color:var(--muted);text-tra
   <aside class="side">
     <div class="logo"><img src="/brand/nilna-logo.png" alt="NILNA Events"></div>
     <div id="nav"></div>
-    <div class="foot">Signed in · <button onclick="logout()">Sign out</button></div>
+    <div class="foot"><span id="who">Signed in</span> · <button onclick="logout()">Sign out</button></div>
   </aside>
   <div>
     <div class="mbar"><img src="/brand/nilna-logo.png" alt="NILNA"><select id="mnav" onchange="go(this.value)"></select></div>
@@ -221,24 +221,26 @@ async function boot(){
 function showAuth(again){
   $('#app').classList.add('hide'); $('#layer').innerHTML=''; const a=$('#auth'); a.classList.remove('hide');
   a.innerHTML = `<form class="box" onsubmit="event.preventDefault();login()"><img src="/brand/nilna-logo.png" alt="NILNA Events"><h1>Staff dashboard</h1><p>${again?'Your session ended. ':''}Sign in to manage customers, quotations and invoices.</p>
-  <div class="f"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required autofocus></div>
+  <div class="f"><label for="un">Username</label><input id="un" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required></div>
+  <div class="f"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required></div>
   <div id="aerr" class="small" style="color:var(--bad);min-height:18px;margin-bottom:6px"></div>
   <button class="btn pri" style="width:100%;justify-content:center;padding:11px">Sign in</button></form>`;
-  setTimeout(()=>$('#pw')?.focus(),50);
+  setTimeout(()=>$('#un')?.focus(),50);
 }
 function showSetup(){
   const a=$('#auth'); a.classList.remove('hide');
   a.innerHTML = `<form class="box" onsubmit="event.preventDefault();setup()"><img src="/brand/nilna-logo.png" alt="NILNA Events"><h1>Create the staff password</h1><p>First-time setup. Everyone on the team signs in with this password.</p>
+  <div class="f"><label>Username</label><input id="un" type="text" autocomplete="username" autocapitalize="none" required></div>
   <div class="f"><label>New password (10+ characters)</label><input id="pw" type="password" autocomplete="new-password" minlength="10" required></div>
   <div class="f"><label>Repeat password</label><input id="pw2" type="password" autocomplete="new-password" required></div>
   <div id="aerr" class="small" style="color:var(--bad);min-height:18px;margin-bottom:6px"></div>
   <button class="btn pri" style="width:100%;justify-content:center;padding:11px">Create and open dashboard</button></form>`;
 }
-async function login(){ try{ await api('login',{password:$('#pw').value}); await loadAll(); showApp(); }catch(e){ $('#aerr').textContent=e.message; } }
-async function setup(){ if($('#pw').value!==$('#pw2').value){ $('#aerr').textContent='The passwords don\'t match.'; return; } try{ await api('setup',{password:$('#pw').value}); await loadAll(); showApp(); }catch(e){ $('#aerr').textContent=e.message; } }
+async function login(){ try{ await api('login',{username:$('#un').value,password:$('#pw').value}); await loadAll(); showApp(); }catch(e){ $('#aerr').textContent=e.message; } }
+async function setup(){ if($('#pw').value!==$('#pw2').value){ $('#aerr').textContent='The passwords don\'t match.'; return; } try{ await api('setup',{username:$('#un').value,password:$('#pw').value}); await loadAll(); showApp(); }catch(e){ $('#aerr').textContent=e.message; } }
 async function logout(){ try{ await api('logout'); }catch{} showAuth(); }
 async function loadAll(){ DB = await api('load'); }
-function showApp(){ $('#auth').classList.add('hide'); $('#app').classList.remove('hide'); const h=location.hash.slice(1); if(h) view=h; render(); }
+function showApp(){ $('#who').textContent = DB.username || 'Signed in'; $('#auth').classList.add('hide'); $('#app').classList.remove('hide'); const h=location.hash.slice(1); if(h) view=h; render(); }
 
 /* ============ navigation ============ */
 const VIEWS = [['overview','Overview','home'],['customers','Customers','users'],['quotation','Quotations','quote'],['proposal','Proposals','proposal'],['invoice','Invoices','invoice'],['email','Email','mail'],['settings','Settings','cog']];
@@ -677,13 +679,13 @@ function vSettings(){
   <div class="sec"><h3>Money</h3><div class="grid g3">${f('currency','Default currency')}${f('vat','Default VAT %','5','number')}</div>${ta('bank','Bank details (printed on invoices)',4)}</div>
   <div class="sec"><h3>Default terms</h3>${ta('quoteTerms','Quotation & proposal terms',4)}${ta('invoiceTerms','Invoice terms',3)}</div>
   <div class="sec"><h3>Email signature</h3>${ta('signature','Signature',4)}</div>
-  <div class="sec"><h3>Password</h3><div class="grid g3"><div class="f"><label>Current password</label><input id="pw-c" type="password" autocomplete="current-password"></div><div class="f"><label>New password (10+)</label><input id="pw-n" type="password" autocomplete="new-password"></div><div class="f" style="align-self:end"><button class="btn" onclick="changePw()">Change password</button></div></div></div>
+  <div class="sec"><h3>Sign-in</h3><p class="small muted" style="margin-top:0">Signed in as <b>${esc(DB.username||'')}</b>. Leave a field empty to keep it as it is.</p><div class="grid g4"><div class="f"><label>New username</label><input id="un-n" type="text" autocomplete="username" autocapitalize="none" placeholder="${esc(DB.username||'')}"></div><div class="f"><label>New password (10+)</label><input id="pw-n" type="password" autocomplete="new-password"></div><div class="f"><label>Current password *</label><input id="pw-c" type="password" autocomplete="current-password"></div><div class="f" style="align-self:end"><button class="btn" onclick="changePw()">Update sign-in</button></div></div></div>
   <div class="sec"><h3>Backup</h3><p class="small muted" style="margin-top:0">Download everything as one file, or restore a backup. Restoring replaces all current data.</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="backup()">${ic('dl')}Download backup</button><label class="btn" style="margin:0;text-transform:none;letter-spacing:0;font-size:13px;color:var(--ink)">Restore backup<input type="file" accept=".json" class="hide" onchange="restore(this.files[0])"></label><button class="btn" onclick="exportCsv()">${ic('dl')}Customers CSV</button></div></div>`;
 }
 async function saveSettings(){ const o={}; document.querySelectorAll('[data-s]').forEach(el=>o[el.dataset.s]=el.value);
   try{ DB.settings=await api('saveSettings',{settings:o}); toast('Settings saved'); }catch(e){ toast(e.message,true); } }
-async function changePw(){ try{ await api('password',{current:$('#pw-c').value,password:$('#pw-n').value}); $('#pw-c').value=$('#pw-n').value=''; toast('Password changed'); }catch(e){ toast(e.message,true); } }
+async function changePw(){ try{ const r=await api('password',{current:$('#pw-c').value,password:$('#pw-n').value,username:$('#un-n').value.trim()}); DB.username=r.username; toast('Sign-in details updated'); render(); }catch(e){ toast(e.message,true); } }
 function dl(name,text,type){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text],{type})); a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); }
 function backup(){ dl(`nilna-dashboard-backup-${today()}.json`, JSON.stringify(DB,null,2), 'application/json'); }
 async function restore(file){ if(!file) return; if(!confirm('Restore this backup? All current data will be replaced.')) return;

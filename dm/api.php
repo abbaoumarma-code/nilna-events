@@ -86,7 +86,9 @@ if ($action === 'setup') {
   if ($configured) fail('Already set up.', 403);
   $pw = (string)($in['password'] ?? '');
   if (strlen($pw) < 10) fail('Use at least 10 characters.');
-  file_put_contents(auth_file(), json_encode(['hash' => password_hash($pw, PASSWORD_DEFAULT), 'fails' => 0, 'lockUntil' => 0]));
+  $user = s($in['username'] ?? '', 120);
+  if ($user === '') fail('Choose a username.');
+  file_put_contents(auth_file(), json_encode(['user' => $user, 'hash' => password_hash($pw, PASSWORD_DEFAULT), 'fails' => 0, 'lockUntil' => 0]));
   @chmod(auth_file(), 0600);
   session_regenerate_id(true); $_SESSION['ok'] = true;
   out(['ok' => true]);
@@ -95,7 +97,8 @@ if ($action === 'setup') {
 if ($action === 'login') {
   if (!$configured) fail('Not set up yet.', 409);
   if (($auth['lockUntil'] ?? 0) > time()) fail('Too many attempts. Try again in a few minutes.', 429);
-  if (password_verify((string)($in['password'] ?? ''), $auth['hash'])) {
+  $userOk = empty($auth['user']) || strcasecmp(trim((string)($in['username'] ?? '')), $auth['user']) === 0;
+  if ($userOk && password_verify((string)($in['password'] ?? ''), $auth['hash'])) {
     $auth['fails'] = 0; $auth['lockUntil'] = 0;
     file_put_contents(auth_file(), json_encode($auth));
     session_regenerate_id(true); $_SESSION['ok'] = true;
@@ -105,7 +108,7 @@ if ($action === 'login') {
   if ($auth['fails'] >= 5) { $auth['lockUntil'] = time() + 600; $auth['fails'] = 0; }
   file_put_contents(auth_file(), json_encode($auth));
   sleep(1);
-  fail('Wrong password.', 401);
+  fail('Wrong username or password.', 401);
 }
 
 if ($action === 'logout') { $_SESSION = []; session_destroy(); out(['ok' => true]); }
@@ -116,13 +119,16 @@ if (empty($_SESSION['ok'])) fail('Please sign in.', 401);
 if ($action === 'password') {
   if (!password_verify((string)($in['current'] ?? ''), $auth['hash'])) fail('Current password is wrong.', 401);
   $pw = (string)($in['password'] ?? '');
-  if (strlen($pw) < 10) fail('Use at least 10 characters.');
-  $auth['hash'] = password_hash($pw, PASSWORD_DEFAULT);
+  $user = s($in['username'] ?? '', 120);
+  if ($pw === '' && $user === '') fail('Enter a new username or password.');
+  if ($pw !== '' && strlen($pw) < 10) fail('Use at least 10 characters.');
+  if ($pw !== '') $auth['hash'] = password_hash($pw, PASSWORD_DEFAULT);
+  if ($user !== '') $auth['user'] = $user;
   file_put_contents(auth_file(), json_encode($auth));
-  out(['ok' => true]);
+  out(['ok' => true, 'username' => $auth['user'] ?? '']);
 }
 
-if ($action === 'load') out(with_db(fn($db) => $db, false));
+if ($action === 'load') { $db = with_db(fn($db) => $db, false); $db['username'] = $auth['user'] ?? ''; out($db); }
 
 function clean_customer(array $c, ?array $old): array {
   return [
